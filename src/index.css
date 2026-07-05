@@ -702,6 +702,21 @@ iframe {
   color: var(--gold) !important;
 }
 
+.min-h-screen.bg-white > section.contact-main-section .bg-gradient-to-br.from-gray-900,
+.min-h-screen.bg-white > section.contact-main-section .bg-gradient-to-br.to-emerald-900 {
+  background:
+    linear-gradient(145deg, var(--ceylon-dark), var(--ceylon) 58%, #4b2417) !important;
+  border: 1px solid rgba(216, 182, 111, 0.24) !important;
+}
+
+.min-h-screen.bg-white > section.contact-main-section .bg-gradient-to-br.from-gray-900 h4 {
+  color: var(--gold) !important;
+}
+
+.min-h-screen.bg-white > section.contact-main-section .bg-gradient-to-br.from-gray-900 p {
+  color: rgba(255, 250, 240, 0.78) !important;
+}
+
 @media (max-width: 640px) {
   .min-h-screen.bg-white > section:first-child {
     min-height: 56svh;
