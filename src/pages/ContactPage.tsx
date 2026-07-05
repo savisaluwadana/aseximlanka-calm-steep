@@ -2,17 +2,12 @@ import { Mail, Phone, MapPin, Clock, Send, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 // FloatingLeaves removed — decorative leaves have been removed per request
-
-gsap.registerPlugin(ScrollTrigger);
 
 const ContactPage = () => {
   const { toast } = useToast();
-  const headerRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -21,18 +16,6 @@ const ContactPage = () => {
     country: "",
     message: "",
   });
-
-  useEffect(() => {
-    if (headerRef.current) {
-      gsap.from(headerRef.current.children, {
-        opacity: 0,
-        y: 50,
-        stagger: 0.15,
-        duration: 1,
-        ease: "power3.out",
-      });
-    }
-  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -94,7 +77,7 @@ const ContactPage = () => {
           />
         </div>
 
-        <div ref={headerRef} className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md border border-amber-500/30 rounded-full">
               <MessageSquare className="w-5 h-5 text-amber-400" />

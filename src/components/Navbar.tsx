@@ -1,7 +1,15 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "./ui/button";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+
+const navItems = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Tea", path: "/products" },
+  { name: "Spices", path: "/spices" },
+  { name: "Wellness", path: "/wellness" },
+  { name: "Contact", path: "/contact" },
+];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,21 +18,11 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 24);
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const navItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Tea", path: "/products" },
-    { name: "Spices", path: "/spices" },
-    { name: "Wellness", path: "/wellness" },
-    { name: "Contact", path: "/contact" },
-  ];
 
   const handleNavigate = (path: string) => {
     navigate(path);
@@ -33,93 +31,86 @@ const Navbar = () => {
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 backdrop-blur-sm shadow-sm ${
-        isScrolled
-          ? "bg-white/95 shadow-lg"
-          : "bg-black/40"
-      }`}
-      style={{ WebkitBackdropFilter: 'saturate(120%) blur(6px)' }}
-    >
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div
-            className="cursor-pointer group"
-            onClick={() => handleNavigate("/")}
-          >
-            <h1
-              className={`text-2xl md:text-3xl font-serif tracking-wide transition-all duration-300 ${
-                isScrolled ? "text-gray-900" : "text-white"
-              } group-hover:scale-105`}
-            >
-              A. S. <span className="text-amber-600">Exim Lanka</span>
-            </h1>
-          </div>
+    <header className="fixed inset-x-0 top-4 z-50 px-4">
+      <nav
+        className={`mx-auto flex max-w-7xl items-center justify-between border border-[#d8b66f]/55 bg-[#fffaf0]/95 px-3 py-3 shadow-[0_22px_60px_rgba(20,34,26,0.22)] backdrop-blur-2xl transition-all duration-300 md:px-4 ${
+          isScrolled ? "translate-y-0" : ""
+        }`}
+        style={{ borderRadius: 14 }}
+      >
+        <button
+          onClick={() => handleNavigate("/")}
+          className="group flex min-w-0 max-w-[calc(100%-56px)] items-center gap-3 text-left"
+          aria-label="A. S. Exim Lanka home"
+        >
+          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[#d8b66f]/70 bg-[#103b2c] font-serif text-base text-[#fffaf0] shadow-[0_12px_28px_rgba(16,59,44,0.25)]">
+            AS
+          </span>
+          <span className="min-w-0">
+            <span className="block truncate font-serif text-base leading-none text-[#103b2c] sm:text-lg md:text-xl">
+              A. S. Exim Lanka
+            </span>
+            <span className="mt-1 block truncate text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-[#8a4b2f] sm:text-[0.68rem] sm:tracking-[0.22em]">
+              Ceylon exports since 1977
+            </span>
+          </span>
+        </button>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
+        <div className="hidden items-center gap-1 md:flex">
+          {navItems.map((item) => {
+            const isActive = location.pathname === item.path;
+            return (
               <button
                 key={item.path}
                 onClick={() => handleNavigate(item.path)}
-                className={`relative text-sm font-medium tracking-wide uppercase transition-colors ${
-                  location.pathname === item.path
-                    ? "text-amber-400"
-                    : isScrolled
-                    ? "text-gray-800 hover:text-amber-500"
-                    : "text-white hover:text-amber-300"
+                className={`rounded-md px-3 py-2 text-[0.78rem] font-extrabold uppercase tracking-[0.14em] transition-colors ${
+                  isActive
+                    ? "bg-[#103b2c] text-[#fffaf0]"
+                    : "text-[#1f3429] hover:bg-[#f0e4c9] hover:text-[#8a4b2f]"
                 }`}
               >
                 {item.name}
-                {location.pathname === item.path && (
-                  <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-amber-600" />
-                )}
               </button>
-            ))}
-            <Button
-              onClick={() => handleNavigate("/contact")}
-              className="bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white rounded-full px-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              Get In Touch
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <X className={`w-6 h-6 ${isScrolled ? "text-gray-900" : "text-white"}`} />
-            ) : (
-              <Menu className={`w-6 h-6 ${isScrolled ? "text-gray-900" : "text-white"}`} />
-            )}
-          </button>
+            );
+          })}
         </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-6 pb-4 space-y-3 bg-white/10 backdrop-blur-md rounded-2xl p-4">
+        <button
+          onClick={() => handleNavigate("/contact")}
+          className="hidden rounded-md border border-[#d8b66f]/60 bg-[#8a4b2f] px-4 py-3 text-xs font-bold uppercase tracking-[0.16em] text-[#fffaf0] shadow-[0_14px_30px_rgba(138,75,47,0.2)] transition hover:bg-[#103b2c] lg:inline-flex"
+        >
+          Inquire
+        </button>
+
+        <button
+          className="grid h-11 w-11 place-items-center rounded-md bg-[#103b2c] text-[#fffaf0] md:hidden"
+          onClick={() => setIsMobileMenuOpen((open) => !open)}
+          aria-label="Toggle navigation"
+        >
+          {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
+      </nav>
+
+      {isMobileMenuOpen && (
+        <div className="mx-auto mt-2 max-w-7xl border border-[#d8b66f]/35 bg-[#fffaf0]/95 p-3 shadow-[0_22px_60px_rgba(20,34,26,0.16)] backdrop-blur-2xl md:hidden" style={{ borderRadius: 10 }}>
+          <div className="grid gap-1">
             {navItems.map((item) => (
               <button
                 key={item.path}
                 onClick={() => handleNavigate(item.path)}
-                className={`block w-full text-left px-4 py-3 text-sm font-medium tracking-wide uppercase transition-all rounded-xl ${
+                className={`rounded-md px-4 py-3 text-left text-sm font-bold uppercase tracking-[0.14em] ${
                   location.pathname === item.path
-                    ? "bg-amber-600 text-white"
-                    : isScrolled
-                    ? "text-gray-700 hover:bg-gray-100"
-                    : "text-white hover:bg-white/10"
+                    ? "bg-[#103b2c] text-[#fffaf0]"
+                    : "text-[#344137] hover:bg-[#f0e4c9]"
                 }`}
               >
                 {item.name}
               </button>
             ))}
           </div>
-        )}
-      </div>
-    </nav>
+        </div>
+      )}
+    </header>
   );
 };
 
