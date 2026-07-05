@@ -104,12 +104,12 @@ const ContactPage = () => {
       </section>
 
       {/* Main Contact Section */}
-      <section className="py-24 bg-white">
+      <section className="contact-main-section py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-5 gap-12 max-w-7xl mx-auto">
             {/* Contact Form - Takes 3 columns */}
             <div className="lg:col-span-3">
-              <div className="bg-gradient-to-br from-gray-50 to-white p-10 rounded-3xl shadow-xl border border-gray-100">
+              <div className="premium-contact-card bg-gradient-to-br from-gray-50 to-white p-10 rounded-3xl shadow-xl border border-gray-100">
                 <div className="mb-8">
                   <h2 className="text-3xl md:text-4xl font-serif text-gray-900 mb-4">
                     Send Us a Message
@@ -119,7 +119,7 @@ const ContactPage = () => {
                   </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="premium-contact-form space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
