@@ -1,27 +1,9 @@
 import { Leaf, Package, Award, Globe, Check, ArrowRight, Sparkles, Shield, Heart, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const SpicesPage = () => {
-  const headerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (headerRef.current) {
-      gsap.from(headerRef.current.children, {
-        opacity: 0,
-        y: 50,
-        stagger: 0.15,
-        duration: 1,
-        ease: "power3.out",
-      });
-    }
-  }, []);
 
   const spices = [
     {
@@ -118,7 +100,7 @@ const SpicesPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative mt-16 py-32 md:py-48 overflow-hidden bg-gradient-to-br from-amber-950 via-amber-900 to-emerald-950">
+      <section className="relative py-32 md:py-48 overflow-hidden bg-gradient-to-br from-amber-950 via-amber-900 to-emerald-950">
         <div className="absolute inset-0 opacity-30">
           <div
             className="absolute inset-0 bg-cover bg-center bg-fixed"
@@ -143,7 +125,7 @@ const SpicesPage = () => {
           ))}
         </div>
 
-        <div ref={headerRef} className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md border border-amber-500/30 rounded-full">
               <Sparkles className="w-5 h-5 text-amber-400" />
@@ -217,7 +199,7 @@ const SpicesPage = () => {
 
       {/* Heritage Section */}
       {/* Heritage Section */}
-      <section className="py-32 bg-gradient-to-br from-emerald-950 via-emerald-900 to-amber-950 relative overflow-hidden">
+      <section className="premium-dark-section py-32 bg-gradient-to-br from-emerald-950 via-emerald-900 to-amber-950 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -394,7 +376,7 @@ const SpicesPage = () => {
       </section>
 
       {/* Global Reach */}
-      <section className="py-32 bg-gradient-to-br from-gray-900 via-emerald-900 to-gray-900 relative overflow-hidden">
+      <section className="premium-dark-section py-32 bg-gradient-to-br from-gray-900 via-emerald-900 to-gray-900 relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-5xl mx-auto text-center space-y-12">
             <div>

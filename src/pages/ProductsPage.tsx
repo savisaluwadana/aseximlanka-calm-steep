@@ -1,28 +1,10 @@
 import { Leaf, Package, Star, Award, Check, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 // FloatingLeaves removed — decorative leaves have been removed per request
 
-gsap.registerPlugin(ScrollTrigger);
-
 const ProductsPage = () => {
-  const headerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (headerRef.current) {
-      gsap.from(headerRef.current.children, {
-        opacity: 0,
-        y: 50,
-        stagger: 0.15,
-        duration: 1,
-        ease: "power3.out",
-      });
-    }
-  }, []);
 
   const teaTypes = [
     {
@@ -145,7 +127,7 @@ const ProductsPage = () => {
           ))}
         </div>
 
-        <div ref={headerRef} className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md border border-amber-500/30 rounded-full">
               <Sparkles className="w-5 h-5 text-amber-400" />
@@ -270,7 +252,7 @@ const ProductsPage = () => {
       </section>
 
       {/* Expertise Section */}
-      <section className="py-32 bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-950 relative overflow-hidden">
+      <section className="premium-dark-section py-32 bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-950 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0 bg-cover bg-center"

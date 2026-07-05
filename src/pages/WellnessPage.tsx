@@ -1,27 +1,9 @@
 import { Heart, Leaf, Home, Users, Sparkles, ArrowRight, TreePine, Waves, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const WellnessPage = () => {
-  const headerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (headerRef.current) {
-      gsap.from(headerRef.current.children, {
-        opacity: 0,
-        y: 50,
-        stagger: 0.15,
-        duration: 1,
-        ease: "power3.out",
-      });
-    }
-  }, []);
 
   const features = [
     {
@@ -92,7 +74,7 @@ const WellnessPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative mt-16 py-32 md:py-48 overflow-hidden bg-gradient-to-br from-emerald-950 via-teal-900 to-cyan-950">
+      <section className="relative py-32 md:py-48 overflow-hidden bg-gradient-to-br from-emerald-950 via-teal-900 to-cyan-950">
         <div className="absolute inset-0 opacity-30">
           <div
             className="absolute inset-0 bg-cover bg-center bg-fixed"
@@ -117,7 +99,7 @@ const WellnessPage = () => {
           ))}
         </div>
 
-        <div ref={headerRef} className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md border border-emerald-500/30 rounded-full">
               <Sparkles className="w-5 h-5 text-emerald-400" />
@@ -215,7 +197,7 @@ const WellnessPage = () => {
       </section>
 
       {/* Kadahapola Ayurvedic Section */}
-      <section className="py-32 bg-gradient-to-br from-emerald-950 via-teal-900 to-emerald-950 relative overflow-hidden">
+      <section className="premium-dark-section py-32 bg-gradient-to-br from-emerald-950 via-teal-900 to-emerald-950 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -297,7 +279,7 @@ const WellnessPage = () => {
       </section>
 
       {/* Location Highlight */}
-      <section className="py-32 bg-gradient-to-br from-gray-900 via-emerald-900 to-gray-900 relative overflow-hidden">
+      <section className="premium-dark-section py-32 bg-gradient-to-br from-gray-900 via-emerald-900 to-gray-900 relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">

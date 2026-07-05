@@ -1,26 +1,7 @@
 import { Award, Users, Globe, TrendingUp, Target, Heart, Sparkles, Building } from "lucide-react";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 // FloatingLeaves component removed — decorative leaves have been removed per request
 
-gsap.registerPlugin(ScrollTrigger);
-
 const AboutPage = () => {
-  const headerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (headerRef.current) {
-      gsap.from(headerRef.current.children, {
-        opacity: 0,
-        y: 50,
-        stagger: 0.2,
-        duration: 1,
-        ease: "power3.out",
-      });
-    }
-  }, []);
-
   const values = [
     {
       icon: Award,
@@ -75,7 +56,7 @@ const AboutPage = () => {
           />
         </div>
 
-        <div ref={headerRef} className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="inline-block">
               <p className="text-amber-400 text-sm tracking-[0.3em] uppercase font-medium">
@@ -101,32 +82,32 @@ const AboutPage = () => {
       {/* Story Section */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-start max-w-7xl mx-auto">
             {/* Image Grid */}
-            <div className="relative">
-              <div className="grid grid-cols-2 gap-4">
+            <div className="relative z-10">
+              <div className="relative z-10 grid grid-cols-2 gap-4">
                 <div className="space-y-4">
-                  <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+                  <div className="aspect-[4/5] overflow-hidden border border-[#103b2c]/12 bg-[#fffdf7] p-3 shadow-2xl">
                     <img
                       src="/About/image.png"
                       alt="A S Exim Lanka Heritage"
-                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                      className="h-full w-full object-cover hover:scale-105 transition-transform duration-700"
                     />
                   </div>
-                  <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                  <div className="aspect-square overflow-hidden border border-[#103b2c]/12 bg-[#fffdf7] p-3 shadow-2xl">
                     <img
                       src="/About/image2.jpeg"
                       alt="Ceylon Tea Excellence"
-                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                      className="h-full w-full object-cover hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                 </div>
                 <div className="space-y-4 pt-8">
-                  <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+                  <div className="aspect-[4/5] overflow-hidden border border-[#103b2c]/12 bg-[#fffdf7] p-3 shadow-2xl">
                     <img
                       src="/About/image3.jpeg"
                       alt="Our Company Story"
-                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                      className="h-full w-full object-cover hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                 </div>
@@ -241,53 +222,55 @@ const AboutPage = () => {
       </section>
 
       {/* Timeline */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-20">
-            <p className="text-amber-600 text-sm tracking-[0.3em] uppercase mb-4 font-medium">
+      <section id="timeline" className="premium-timeline relative overflow-hidden bg-[#103b2c] py-24 text-[#fffaf0] md:py-32">
+        <div className="absolute inset-0 opacity-[0.08]">
+          <div
+            className="h-full w-full"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(216,182,111,.35) 1px, transparent 1px), linear-gradient(90deg, rgba(216,182,111,.35) 1px, transparent 1px)",
+              backgroundSize: "64px 64px",
+            }}
+          />
+        </div>
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d8b66f] to-transparent" />
+        <div className="container relative z-10 mx-auto px-6">
+          <div className="mx-auto mb-16 max-w-4xl text-center">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.26em] text-[#d8b66f]">
               Our Journey
             </p>
-            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">
+            <h2 className="font-serif text-4xl text-[#fffaf0] md:text-6xl">
               Milestones of Excellence
             </h2>
-            <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-amber-600 to-transparent mx-auto" />
+            <div className="mx-auto mt-7 h-px w-40 bg-gradient-to-r from-transparent via-[#d8b66f] to-transparent" />
           </div>
 
-          <div className="max-w-5xl mx-auto">
-            <div className="relative">
-              {/* Timeline Line */}
-              <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-amber-600 via-emerald-600 to-amber-600 transform -translate-x-1/2 hidden md:block" />
-
-              {milestones.map((milestone, index) => (
-                <div
-                  key={index}
-                  className={`relative mb-16 ${
-                    index % 2 === 0 ? "md:text-right" : "md:text-left"
-                  }`}
-                >
-                  <div
-                    className={`md:w-1/2 ${
-                      index % 2 === 0 ? "md:pr-16 md:ml-0" : "md:pl-16 md:ml-auto"
-                    }`}
-                  >
-                    <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100">
-                      <div className="inline-block px-6 py-2 bg-gradient-to-r from-amber-600 to-amber-500 text-white text-2xl font-serif rounded-full mb-4">
-                        {milestone.year}
-                      </div>
-                      <h3 className="text-2xl font-serif text-gray-900 mb-3">
-                        {milestone.title}
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        {milestone.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Timeline Dot */}
-                  <div className="absolute left-1/2 top-8 w-6 h-6 bg-amber-600 rounded-full transform -translate-x-1/2 border-4 border-white shadow-lg hidden md:block" />
+          <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-2">
+            {milestones.map((milestone, index) => (
+              <article
+                key={index}
+                className="group relative overflow-hidden border border-[#d8b66f]/24 bg-[#fffaf0] p-7 text-left shadow-[0_26px_70px_rgba(0,0,0,0.22)] transition duration-300 hover:-translate-y-1 hover:border-[#d8b66f]/70"
+                style={{ borderRadius: 8 }}
+              >
+                <div className="absolute -right-4 -top-7 font-serif text-8xl leading-none text-[#103b2c]/[0.06] md:text-9xl">
+                  {milestone.year}
                 </div>
-              ))}
-            </div>
+                <div className="relative z-10">
+                  <div className="mb-8 flex items-center justify-between border-b border-[#103b2c]/10 pb-5">
+                    <span className="font-serif text-4xl text-[#8a4b2f]">
+                      {milestone.year}
+                    </span>
+                    <span className="h-px w-16 bg-[#d8b66f]" />
+                  </div>
+                  <h3 className="font-serif text-3xl text-[#103b2c]">
+                    {milestone.title}
+                  </h3>
+                  <p className="mt-4 leading-7 text-[#6b675b]">
+                    {milestone.description}
+                  </p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -354,7 +337,7 @@ const AboutPage = () => {
       </section>
 
       {/* Leadership Quote */}
-      <section className="py-32 bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-950 relative overflow-hidden">
+      <section className="premium-dark-section py-32 bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-950 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E")`
