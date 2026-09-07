@@ -1,401 +1,225 @@
-import { Leaf, Package, Award, Globe, Check, ArrowRight, Sparkles, Shield, Heart, TrendingUp } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, ArrowUpRight, Leaf, PackageCheck, Scale, ShieldCheck } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+
+const spicePortfolio = [
+  {
+    number: "01",
+    name: "Ceylon Cinnamon",
+    description: "Delicate, layered, and naturally sweet—the signature spice of Sri Lankan origin.",
+    image: "/spices/image1.jpeg",
+    notes: ["Quills", "Cut cinnamon", "Powder", "Private label"],
+  },
+  {
+    number: "02",
+    name: "Black Pepper",
+    description: "Aromatic, bright, and assertive pepper selected for culinary, retail, and bulk programs.",
+    image: "/spices/image2.jpeg",
+    notes: ["Whole", "Cracked", "Ground", "Bulk"],
+  },
+  {
+    number: "03",
+    name: "Cloves",
+    description: "Warm, concentrated spice character with the unmistakable intensity associated with island-grown cloves.",
+    image: "/spices/image3.jpeg",
+    notes: ["Whole cloves", "Sorted grades", "Retail packs", "Bulk"],
+  },
+  {
+    number: "04",
+    name: "Cardamom",
+    description: "Fragrant pods selected for aroma, appearance, and the needs of premium food and beverage programs.",
+    image: "/spices/image1.jpeg",
+    notes: ["Whole pods", "Selected lots", "Retail packs", "Bulk"],
+  },
+  {
+    number: "05",
+    name: "Nutmeg & Mace",
+    description: "Warm, complex spice profiles for culinary, ingredient, and specialty retail applications.",
+    image: "/spices/image2.jpeg",
+    notes: ["Whole nutmeg", "Mace", "Ground", "Bulk"],
+  },
+  {
+    number: "06",
+    name: "Turmeric & Ginger",
+    description: "Sri Lankan roots prepared for culinary, wellness, ingredient, and private-label collections.",
+    image: "/spices/image3.jpeg",
+    notes: ["Whole", "Dried", "Powder", "Private label"],
+  },
+];
 
 const SpicesPage = () => {
   const navigate = useNavigate();
 
-  const spices = [
-    {
-      name: "Ceylon Cinnamon",
-      latin: "Cinnamomum Zeylanicum",
-      description: "Golden, sweet, and delicate in flavor — the world's finest true cinnamon.",
-      origin: "Matale, Kegalle",
-      image: "/spices/image1.jpeg",
-      features: ["True Cinnamon", "Sweet & Delicate", "Premium Grade", "Hand-rolled"],
-    },
-    {
-      name: "Black Pepper",
-      description: "Rich, bold aroma and sharp heat, naturally sun-dried.",
-      origin: "Kandy, Kurunegala",
-      image: "/spices/image2.jpeg",
-      features: ["Bold Aroma", "Sun-dried", "High Piperine", "Premium Quality"],
-    },
-    {
-      name: "Cloves",
-      description: "Full-bodied aroma and high oil content; handpicked for purity.",
-      origin: "Matara, Galle",
-      image: "/spices/image3.jpeg",
-      features: ["High Oil Content", "Handpicked", "Pure Origin", "Rich Aroma"],
-    },
-    {
-      name: "Cardamom",
-      description: "High-elevation variety with deep fragrance and vibrant color.",
-      origin: "Uda Pussellawa",
-      image: "/spices/image1.jpeg",
-      features: ["High Elevation", "Deep Fragrance", "Vibrant Color", "Premium Grade"],
-    },
-    {
-      name: "Nutmeg & Mace",
-      description: "Sweet, warm flavor with vibrant natural oils.",
-      origin: "Kandy, Matale",
-      image: "/spices/image2.jpeg",
-      features: ["Natural Oils", "Warm Flavor", "Dual Spice", "Premium Quality"],
-    },
-    {
-      name: "Turmeric & Ginger",
-      description: "Purely grown, sun-cured roots — ideal for both culinary and wellness use.",
-      origin: "Dambulla, Monaragala",
-      image: "/spices/image3.jpeg",
-      features: ["Wellness Grade", "Sun-cured", "Pure Roots", "Organic Option"],
-    },
-  ];
-
-  const values = [
-    {
-      icon: Sparkles,
-      title: "Purity",
-      description: "100% authentic Sri Lankan origin",
-    },
-    {
-      icon: Leaf,
-      title: "Sustainability",
-      description: "Ethical sourcing, supporting rural growers",
-    },
-    {
-      icon: Shield,
-      title: "Traceability",
-      description: "Full transparency from farm to export",
-    },
-    {
-      icon: Award,
-      title: "Excellence",
-      description: "Global standards, advanced processing",
-    },
-  ];
-
-  const packagingOptions = [
-    {
-      title: "Bulk Export Bags",
-      range: "5–50 kg",
-      use: "Industrial and wholesale buyers",
-    },
-    {
-      title: "Retail Packs",
-      range: "50g–500g pouches",
-      use: "Supermarkets and boutique stores",
-    },
-    {
-      title: "Glass Jars & Tin Canisters",
-      range: "Premium packaging",
-      use: "Gourmet and gift collections",
-    },
-    {
-      title: "Private Label Solutions",
-      range: "Custom branding",
-      use: "Export packaging and design",
-    },
-  ];
+  const go = (path: string) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative py-32 md:py-48 overflow-hidden bg-gradient-to-br from-amber-950 via-amber-900 to-emerald-950">
-        <div className="absolute inset-0 opacity-30">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-fixed"
-            style={{
-              backgroundImage: "url('/spices/image2.jpeg')",
-            }}
-          />
-        </div>
+    <div className="min-h-screen bg-[#fffaf0] text-[#14372b]">
+      <section className="relative min-h-[78svh] overflow-hidden bg-[#2c2118] text-[#fff9ed]">
+        <img
+          src="/spices/image2.jpeg"
+          alt="Sri Lankan spices"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          fetchPriority="high"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(29,20,14,0.96)_0%,rgba(53,35,23,0.82)_47%,rgba(20,55,43,0.34)_80%)]" />
+        <div className="absolute inset-0 premium-grain opacity-[0.09]" />
 
-        {/* Animated particles */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-amber-400/20 rounded-full animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-              }}
-            />
-          ))}
-        </div>
-
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md border border-amber-500/30 rounded-full">
-              <Sparkles className="w-5 h-5 text-amber-400" />
-              <span className="text-amber-400 text-sm tracking-[0.3em] uppercase font-medium">
-                Spice of Ceylon
-              </span>
-            </div>
-
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white leading-tight">
-              The Island's
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500">
-                Fragrance
-              </span>
+        <div className="relative z-10 mx-auto flex min-h-[78svh] max-w-[1440px] items-end px-5 pb-16 pt-32 sm:px-8 md:pb-20 lg:px-12 lg:pb-24">
+          <div className="max-w-5xl">
+            <p className="premium-kicker premium-kicker-light">Island spice house</p>
+            <h1 className="mt-7 max-w-5xl font-serif text-[clamp(4.2rem,8.5vw,8.5rem)] font-normal leading-[0.83] tracking-[-0.04em] text-[#fff9ed]">
+              Ceylon beyond tea.
+              <span className="mt-2 block italic text-[#e5c982]">Fragrance, heat, depth.</span>
             </h1>
-
-            <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed">
-              For centuries, Ceylon has been the heart of the world's spice trade.
-              At A S Eximlanka, we continue that legacy with purity, authenticity,
-              and excellence.
+            <p className="mt-8 max-w-2xl text-base font-light leading-8 text-white/70 md:text-lg">
+              A focused portfolio of Sri Lankan cinnamon, pepper, cloves, cardamom, nutmeg, mace, turmeric, and ginger prepared for international buyers and private-label programs.
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-              <Button
-                size="lg"
-                onClick={() => navigate("/contact")}
-                className="bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white px-10 py-7 text-lg font-medium rounded-full shadow-xl hover:scale-105 transition-all duration-300"
-              >
-                Request Quote
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
+            <button
+              onClick={() => go("/contact")}
+              className="group mt-9 inline-flex items-center gap-4 bg-[#e1c27c] px-7 py-4 text-[0.66rem] font-bold uppercase tracking-[0.2em] text-[#2b2118] transition-colors hover:bg-[#f0d99d]"
+            >
+              Start a spice inquiry
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </button>
           </div>
         </div>
-
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
       </section>
 
-      {/* Values Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="text-amber-600 text-sm tracking-[0.3em] uppercase mb-4 font-medium">
-              Our Foundation
-            </p>
-            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">
-              Excellence Where Heritage Meets Innovation
+      <section className="bg-[#fffaf0] py-24 md:py-32 lg:py-36">
+        <div className="mx-auto grid max-w-[1440px] gap-12 px-5 sm:px-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20 lg:px-12">
+          <div data-reveal>
+            <p className="premium-kicker">A second expression of origin</p>
+            <h2 className="mt-6 max-w-lg font-serif text-[clamp(3.1rem,4.8vw,5.5rem)] font-normal leading-[0.92] tracking-[-0.03em] text-[#14372b]">
+              The same island, expressed through spice.
             </h2>
-            <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-amber-600 to-transparent mx-auto" />
           </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            {values.map((value, index) => (
-              <div
-                key={index}
-                className="group text-center hover:-translate-y-2 transition-all duration-300"
-              >
-                <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-amber-50 to-emerald-50 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl border border-amber-100">
-                  <value.icon className="w-12 h-12 text-amber-600" />
-                </div>
-                <h3 className="text-xl font-serif text-gray-900 mb-3">
-                  {value.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {value.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Heritage Section */}
-      {/* Heritage Section */}
-      <section className="premium-dark-section py-32 bg-gradient-to-br from-emerald-950 via-emerald-900 to-amber-950 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: "url('/spices/image2.jpeg')",
-            }}
-          />
-        </div>
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-5xl mx-auto text-center space-y-12">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-serif text-white mb-6">
-                The Legacy of Ceylon Spices
-              </h2>
-              <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto" />
-            </div>
-
-            <p className="text-xl text-white/90 leading-relaxed">
-              For centuries, Ceylon (Sri Lanka) has been the heart of the world's spice 
-              trade — where explorers once sailed oceans in search of the island's golden 
-              cinnamon, fiery pepper, and fragrant cardamom.
-            </p>
-
-            <p className="text-lg text-white/80 leading-relaxed max-w-4xl mx-auto">
-              We partner directly with smallholder farmers across Sri Lanka's key 
-              spice-growing regions — from Matale's cinnamon hills to Kandy's misty 
-              pepper gardens and Uva's fertile valleys. Each product represents our 
-              commitment to ethical trade and environmental responsibility.
+          <div data-reveal className="self-end">
+            <p className="max-w-2xl text-base leading-8 text-[#62665d]">
+              Sri Lanka’s spice identity is inseparable from its history of trade. We present that heritage in a contemporary export format—clear specifications, considered packing, and sourcing conversations built around how the product will actually be used.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Spices Portfolio */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-20">
-            <p className="text-amber-600 text-sm tracking-[0.3em] uppercase mb-4 font-medium">
-              Our Collection
-            </p>
-            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">
-              Premium Spice Portfolio
+      <section className="bg-[#f3e8d5] py-24 md:py-32">
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+          <div data-reveal className="mb-14 max-w-3xl">
+            <p className="premium-kicker">The portfolio</p>
+            <h2 className="mt-6 font-serif text-[clamp(3.2rem,5vw,5.8rem)] font-normal leading-[0.9] tracking-[-0.03em] text-[#14372b]">
+              Six staples of the island spice trade.
             </h2>
-            <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-amber-600 to-transparent mx-auto" />
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-            {spices.map((spice, index) => (
-              <div
-                key={index}
-                className="group bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100"
+          <div className="divide-y divide-[#14372b]/14 border-y border-[#14372b]/14">
+            {spicePortfolio.map((spice, index) => (
+              <article
+                data-reveal
+                key={spice.name}
+                className="grid gap-8 py-10 md:py-14 lg:grid-cols-[80px_1fr_1fr] lg:items-center lg:gap-12"
               >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={spice.image}
-                    alt={spice.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+                <div className="flex items-center gap-3 lg:block">
+                  <span className="text-[0.58rem] font-semibold uppercase tracking-[0.2em] text-[#9a7650]">{spice.number}</span>
+                  <span className="h-px w-9 bg-[#9a7650]/50 lg:mt-4 lg:block lg:w-11" />
                 </div>
-                <div className="p-8">
-                  <h3 className="text-2xl font-serif text-gray-900 mb-2">
+
+                <div className={`${index % 2 === 1 ? "lg:order-3" : ""}`}>
+                  <div className="overflow-hidden bg-[#2b2118]">
+                    <img
+                      src={spice.image}
+                      alt={spice.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="aspect-[5/3] w-full object-cover transition duration-[1100ms] hover:scale-[1.035]"
+                    />
+                  </div>
+                </div>
+
+                <div className={`${index % 2 === 1 ? "lg:order-2" : ""}`}>
+                  <h3 className="font-serif text-[clamp(2.7rem,4vw,4.6rem)] font-normal leading-[0.94] tracking-[-0.025em] text-[#14372b]">
                     {spice.name}
                   </h3>
-                  {spice.latin && (
-                    <p className="text-xs text-amber-600 italic mb-3">{spice.latin}</p>
-                  )}
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                    {spice.description}
-                  </p>
-                  <div className="flex items-center gap-2 mb-4 text-xs text-gray-500">
-                    <Globe className="w-4 h-4" />
-                    <span>{spice.origin}</span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2">
-                    {spice.features.map((feature, i) => (
-                      <div key={i} className="flex items-center gap-2">
-                        <Check className="w-3 h-3 text-amber-600" />
-                        <span className="text-xs text-gray-700">{feature}</span>
-                      </div>
+                  <p className="mt-5 max-w-xl text-sm leading-7 text-[#66695f]">{spice.description}</p>
+                  <div className="mt-7 flex flex-wrap gap-x-5 gap-y-2 border-t border-[#14372b]/12 pt-5">
+                    {spice.notes.map((note) => (
+                      <span key={note} className="text-[0.56rem] font-semibold uppercase tracking-[0.17em] text-[#8d5c3f]">
+                        {note}
+                      </span>
                     ))}
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Processing & Quality */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="text-amber-600 text-sm tracking-[0.3em] uppercase mb-4 font-medium">
-              Quality Assurance
-            </p>
-            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">
-              Processing Excellence
-            </h2>
-            <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-amber-600 to-transparent mx-auto" />
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            <div className="space-y-6">
-              <h3 className="text-2xl font-serif text-gray-900">
-                State-of-the-Art Processing
-              </h3>
-              <ul className="space-y-4">
-                {[
-                  "Cleaning, grading, and sorting with minimal handling",
-                  "Metal detection and sterilization for export compliance",
-                  "Vacuum and nitrogen-sealed packaging options",
-                  "Full ISO and HACCP standards compliance",
-                  "Multi-stage quality checks maintaining freshness",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-amber-600 flex-shrink-0 mt-1" />
-                    <span className="text-gray-700">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="bg-gradient-to-br from-amber-50 to-emerald-50 p-10 rounded-3xl border border-amber-100">
-              <h3 className="text-2xl font-serif text-gray-900 mb-6">
-                Our Promise
-              </h3>
-              <blockquote className="text-lg text-gray-700 italic leading-relaxed mb-6">
-                "Each grain, leaf, and spice we export carries the essence of our island.
-                Our promise is to bring the world the authentic flavor of Ceylon — pure,
-                ethical, and full of life."
-              </blockquote>
-              <div className="w-20 h-1 bg-amber-600" />
+      <section className="bg-[#2b2118] py-24 text-[#fff9ed] md:py-32 lg:py-36">
+        <div className="mx-auto grid max-w-[1440px] gap-14 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20 lg:px-12">
+          <div data-reveal className="relative">
+            <img
+              src="/spices/image1.jpeg"
+              alt="Ceylon cinnamon"
+              loading="lazy"
+              decoding="async"
+              className="aspect-[5/4] w-full object-cover"
+            />
+            <div className="absolute inset-x-5 bottom-5 border border-white/20 bg-[#2b2118]/86 p-5 backdrop-blur-md sm:inset-x-7 sm:bottom-7 sm:p-6">
+              <p className="text-[0.58rem] font-semibold uppercase tracking-[0.2em] text-[#e1c27c]">Signature origin</p>
+              <p className="mt-2 font-serif text-3xl text-[#fff9ed]">Ceylon cinnamon</p>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Packaging Solutions */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="text-amber-600 text-sm tracking-[0.3em] uppercase mb-4 font-medium">
-              Tailored Solutions
-            </p>
-            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">
-              Packaging Options
+          <div data-reveal>
+            <p className="premium-kicker premium-kicker-light">True cinnamon</p>
+            <h2 className="mt-6 font-serif text-[clamp(3.2rem,5vw,5.8rem)] font-normal leading-[0.9] tracking-[-0.03em] text-[#fff9ed]">
+              The spice most closely tied to <span className="italic text-[#e5c982]">Sri Lankan identity.</span>
             </h2>
-            <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-amber-600 to-transparent mx-auto" />
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            {packagingOptions.map((option, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-white to-gray-50 p-8 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100"
-              >
-                <Package className="w-12 h-12 text-amber-600 mb-4" />
-                <h3 className="text-xl font-serif text-gray-900 mb-2">
-                  {option.title}
-                </h3>
-                <p className="text-sm text-amber-600 font-medium mb-3">{option.range}</p>
-                <p className="text-sm text-gray-600 leading-relaxed">{option.use}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Our green and gold packaging theme symbolizes purity, heritage, and 
-              Sri Lanka's richness. Custom branding and private label solutions available.
+            <p className="mt-7 max-w-xl text-base leading-8 text-white/64">
+              Ceylon cinnamon deserves more than a commodity presentation. We can shape cinnamon programs across product form, packing, gifting, retail, and private-label requirements while keeping origin central to the story.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Global Reach */}
-      <section className="premium-dark-section py-32 bg-gradient-to-br from-gray-900 via-emerald-900 to-gray-900 relative overflow-hidden">
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-5xl mx-auto text-center space-y-12">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-serif text-white mb-6">
-                Global Reach
+      <section className="bg-[#fffaf0] py-24 md:py-32">
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+          <div className="grid gap-12 lg:grid-cols-[0.66fr_1.34fr] lg:gap-20">
+            <div data-reveal>
+              <p className="premium-kicker">Buyer readiness</p>
+              <h2 className="mt-6 max-w-lg font-serif text-[clamp(3rem,4.6vw,5.2rem)] font-normal leading-[0.92] tracking-[-0.03em] text-[#14372b]">
+                From raw spice to shelf-ready collection.
               </h2>
-              <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto" />
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid gap-px bg-[#14372b]/12 sm:grid-cols-2">
               {[
-                { region: "Middle East", countries: "UAE, Saudi Arabia, Qatar" },
-                { region: "Europe & CIS", countries: "Russia, Ukraine" },
-                { region: "Asia Pacific", countries: "Maldives, Singapore, Malaysia" },
-              ].map((market, i) => (
-                <div key={i} className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20">
-                  <Globe className="w-10 h-10 text-amber-400 mx-auto mb-4" />
-                  <h3 className="text-xl font-serif text-white mb-2">{market.region}</h3>
-                  <p className="text-sm text-white/70">{market.countries}</p>
+                {
+                  icon: Leaf,
+                  title: "Origin-led sourcing",
+                  text: "Start with product form, use case, target quality, and market requirements.",
+                },
+                {
+                  icon: Scale,
+                  title: "Commercial formats",
+                  text: "Bulk and retail options can be shaped around the buyer brief and channel.",
+                },
+                {
+                  icon: ShieldCheck,
+                  title: "Specification focus",
+                  text: "Product information and quality expectations are discussed before the final format is committed.",
+                },
+                {
+                  icon: PackageCheck,
+                  title: "Private-label packing",
+                  text: "Pouches, jars, tins, gift formats, and other presentations can support branded collections.",
+                },
+              ].map((item) => (
+                <div data-reveal key={item.title} className="bg-[#fffaf0] p-7 sm:p-8">
+                  <item.icon className="h-6 w-6 text-[#8d5c3f]" />
+                  <h3 className="mt-6 font-serif text-3xl font-normal text-[#14372b]">{item.title}</h3>
+                  <p className="mt-4 text-sm leading-7 text-[#66695f]">{item.text}</p>
                 </div>
               ))}
             </div>
@@ -403,61 +227,22 @@ const SpicesPage = () => {
         </div>
       </section>
 
-      {/* Sustainability */}
-      <section className="py-24 bg-gradient-to-b from-emerald-50 to-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="text-amber-600 text-sm tracking-[0.3em] uppercase mb-4 font-medium">
-              Our Commitment
-            </p>
-            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">
-              Sustainability & Community Impact
-            </h2>
-            <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-amber-600 to-transparent mx-auto" />
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            {[
-              { icon: Leaf, title: "Farmer Training", desc: "Organic cultivation programs" },
-              { icon: Heart, title: "Women Empowerment", desc: "Processing cooperatives" },
-              { icon: TrendingUp, title: "Renewable Energy", desc: "Powered operations" },
-              { icon: Package, title: "Eco Packaging", desc: "Sustainable initiatives" },
-            ].map((item, i) => (
-              <div key={i} className="text-center group">
-                <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-emerald-100 to-amber-50 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg">
-                  <item.icon className="w-10 h-10 text-emerald-700" />
-                </div>
-                <h3 className="text-lg font-serif text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-600">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-32 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-4xl md:text-6xl font-serif text-gray-900 leading-tight">
-              Ready to Experience
-              <span className="block text-amber-600">Authentic Ceylon Spices?</span>
-            </h2>
-            <p className="text-xl text-gray-600">
-              Contact us for custom blends, private labeling, or bulk orders tailored
-              to your market needs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-              <Button
-                size="lg"
-                onClick={() => navigate("/contact")}
-                className="bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white px-10 py-7 text-lg font-medium rounded-full shadow-xl hover:scale-105 transition-all duration-300"
-              >
-                Get In Touch
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
-          </div>
+      <section className="bg-[#efe2cc] py-24 md:py-28">
+        <div data-reveal className="mx-auto max-w-5xl px-5 text-center sm:px-8">
+          <p className="premium-kicker">For food, retail & ingredient buyers</p>
+          <h2 className="mt-6 font-serif text-[clamp(3.4rem,6vw,6.4rem)] font-normal leading-[0.88] tracking-[-0.035em] text-[#14372b]">
+            Bring the island into the brief.
+          </h2>
+          <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-[#66695f]">
+            Tell us the spice, format, volume range, market, or finished product you are planning and we can begin from there.
+          </p>
+          <button
+            onClick={() => go("/contact")}
+            className="group mt-9 inline-flex items-center gap-4 bg-[#14372b] px-7 py-4 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[#fff9ed] transition-colors hover:bg-[#8d5c3f]"
+          >
+            Discuss spice sourcing
+            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </button>
         </div>
       </section>
     </div>
