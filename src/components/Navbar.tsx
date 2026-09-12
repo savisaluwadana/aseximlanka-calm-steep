@@ -82,7 +82,7 @@ const Navbar = () => {
 
           <button
             onClick={() => handleNavigate("/contact")}
-            className={`luxury-nav-cta inline-flex items-center gap-2 border px-5 py-3 text-[0.62rem] font-semibold uppercase tracking-[0.19em] transition-all duration-500 ${
+            className={`luxury-nav-cta group inline-flex items-center gap-2 border px-5 py-3 text-[0.62rem] font-semibold uppercase tracking-[0.19em] transition-all duration-500 ${
               lightHeader
                 ? "border-[#17382d]/25 text-[#17382d] hover:border-[#17382d] hover:bg-[#17382d] hover:text-[#fff9ed]"
                 : "border-white/40 text-white hover:border-[#e3c787] hover:bg-[#e3c787] hover:text-[#0b2d22]"
