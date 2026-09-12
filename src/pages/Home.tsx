@@ -74,62 +74,68 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-[#f7f0e3] text-[#14372b]">
-      <section className="relative min-h-[100svh] overflow-hidden bg-[#092d22] text-[#fff9ed]">
+      <section className="hero-stage relative min-h-[100svh] overflow-hidden bg-[#092d22] text-[#fff9ed]">
         <div className="absolute inset-0">
           <img
+            data-hero-image
             src="/image.png"
             alt="Sri Lankan tea country"
-            className="h-full w-full scale-[1.015] object-cover object-center hero-ken-burns saturate-[0.82] contrast-[1.04]"
+            className="h-full w-full scale-[1.015] object-cover object-center saturate-[0.78] contrast-[1.06]"
             fetchPriority="high"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,31,23,0.97)_0%,rgba(7,39,29,0.84)_42%,rgba(7,39,29,0.26)_72%,rgba(7,39,29,0.58)_100%)]" />
-          <div className="absolute inset-0 premium-grain opacity-[0.13]" />
-          <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#092d22]/80 to-transparent" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,31,23,0.98)_0%,rgba(7,39,29,0.87)_40%,rgba(7,39,29,0.30)_70%,rgba(7,39,29,0.62)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_28%,rgba(225,194,124,0.16),transparent_27%)]" />
+          <div className="absolute inset-0 premium-grain opacity-[0.12]" />
+          <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-[#092d22]/88 to-transparent" />
           <div className="absolute inset-4 border border-white/[0.07] sm:inset-7" />
         </div>
 
-        <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1440px] items-end px-5 pb-16 pt-32 sm:px-8 md:pb-20 lg:px-12 lg:pb-24">
+        <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1440px] items-end px-5 pb-20 pt-32 sm:px-8 md:pb-24 lg:px-12 lg:pb-28">
           <div className="grid w-full gap-12 lg:grid-cols-[minmax(0,1fr)_330px] lg:items-end xl:gap-20">
-            <div className="max-w-5xl">
-              <div className="mb-7 flex items-center gap-4">
-                <span className="h-px w-10 bg-[#e1c27c]" />
+            <div className="hero-copy max-w-5xl">
+              <div data-hero className="mb-7 flex items-center gap-4">
+                <span className="luxury-rule text-[#e1c27c]" />
                 <p className="text-[0.64rem] font-semibold uppercase tracking-[0.25em] text-[#e1c27c] sm:text-[0.68rem]">
                   Sri Lanka · Ceylon origin house
                 </p>
               </div>
 
               <h1 className="max-w-5xl text-balance font-serif text-[clamp(3.9rem,9vw,9rem)] font-normal leading-[0.82] tracking-[-0.035em] text-[#fff9ed]">
-                Born in Ceylon.
-                <span className="mt-3 block italic text-[#e5c982]">Composed for the world.</span>
+                <span data-hero className="hero-title-line">
+                  <span>Born in Ceylon.</span>
+                </span>
+                <span data-hero className="hero-title-line mt-3 italic text-[#e5c982]">
+                  <span>Composed for the world.</span>
+                </span>
               </h1>
 
               <div className="mt-8 grid max-w-3xl gap-7 md:grid-cols-[1fr_auto] md:items-end">
-                <p className="max-w-2xl text-[1rem] font-light leading-8 text-white/75 md:text-lg">
+                <p data-hero className="max-w-2xl text-[1rem] font-light leading-8 text-white/72 md:text-lg">
                   An origin-led house for exceptional Ceylon tea, sourcing across Sri Lanka’s
                   seven tea-growing regions and preparing distinctive collections for retail,
                   hospitality, gifting, and private-label partners.
                 </p>
 
-                <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
+                <div data-hero className="flex flex-col gap-3 sm:flex-row md:flex-col">
                   <button
                     onClick={() => go("/products")}
-                    className="group inline-flex items-center justify-between gap-6 bg-[#e1c27c] px-6 py-4 text-[0.66rem] font-bold uppercase tracking-[0.2em] text-[#0a3125] transition-colors hover:bg-[#f0d99d]"
+                    className="luxury-button group inline-flex items-center justify-between gap-6 bg-[#e1c27c] px-6 py-4 text-[0.66rem] font-bold uppercase tracking-[0.2em] text-[#0a3125] hover:bg-[#f0d99d]"
                   >
                     Discover tea
-                    <ArrowRight className="h-4 w-4 stroke-[1.5] transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="h-4 w-4 stroke-[1.5] transition-transform duration-500 group-hover:translate-x-1" />
                   </button>
                   <button
                     onClick={() => go("/contact")}
-                    className="group inline-flex items-center justify-between gap-6 border border-white/35 px-6 py-4 text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:border-[#e1c27c] hover:text-[#e1c27c]"
+                    className="luxury-button group inline-flex items-center justify-between gap-6 border border-white/35 px-6 py-4 text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-white hover:border-[#e1c27c] hover:text-[#e1c27c]"
                   >
                     Source with us
-                    <ArrowUpRight className="h-4 w-4 stroke-[1.5] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    <ArrowUpRight className="h-4 w-4 stroke-[1.5] transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </button>
                 </div>
               </div>
             </div>
 
-            <aside className="border-t border-white/25 pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+            <aside data-hero className="border-t border-white/25 pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
               <p className="text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-[#e1c27c]">
                 The island in numbers
               </p>
@@ -150,13 +156,22 @@ const Home = () => {
             </aside>
           </div>
         </div>
+
+        <div className="hero-scroll-marker" aria-hidden="true">
+          Scroll to explore
+        </div>
       </section>
 
       <section className="border-b border-[#14372b]/12 bg-[#f7f0e3]">
-        <div className="mx-auto max-w-[1440px] px-5 py-6 sm:px-8 lg:px-12">
-          <div className="flex gap-7 overflow-x-auto pb-1 scrollbar-none lg:grid lg:grid-cols-7 lg:gap-4 lg:overflow-visible">
+        <div className="mx-auto max-w-[1440px] px-5 py-7 sm:px-8 lg:px-12">
+          <div className="flex gap-7 overflow-x-auto pb-2 scrollbar-none lg:grid lg:grid-cols-7 lg:gap-4 lg:overflow-visible">
             {teaRegions.map((region, index) => (
-              <div key={region} className="min-w-max lg:min-w-0">
+              <div
+                data-reveal
+                data-reveal-delay={(index * 0.035).toFixed(2)}
+                key={region}
+                className="luxury-rail-item min-w-max pb-2 lg:min-w-0"
+              >
                 <p className="text-[0.55rem] font-semibold uppercase tracking-[0.18em] text-[#9a7650]">0{index + 1}</p>
                 <p className="mt-1 font-serif text-lg text-[#14372b]">{region}</p>
               </div>
@@ -168,14 +183,14 @@ const Home = () => {
       <section className="bg-[#f7f0e3] py-24 md:py-32 lg:py-40">
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
           <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
-            <div data-reveal>
+            <div data-reveal="left">
               <p className="premium-kicker">A sense of place</p>
               <p className="mt-6 max-w-xs text-sm leading-7 text-[#6e6b5f]">
                 Every tea begins somewhere specific. We believe premium presentation should make that origin more visible, not less.
               </p>
             </div>
 
-            <div data-reveal>
+            <div data-reveal="right">
               <h2 className="max-w-5xl font-serif text-[clamp(3.2rem,6vw,6.6rem)] font-normal leading-[0.92] tracking-[-0.03em] text-[#14372b]">
                 An island measured in <span className="italic text-[#8d5c3f]">altitude, rain, season, and leaf.</span>
               </h2>
@@ -195,7 +210,7 @@ const Home = () => {
       <section className="bg-[#fffaf0] py-24 md:py-32">
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
           <div className="mb-14 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-            <div data-reveal>
+            <div data-reveal="clip">
               <p className="premium-kicker">The Ceylon collection</p>
               <h2 className="mt-5 max-w-3xl font-serif text-[clamp(3rem,5vw,5.6rem)] font-normal leading-[0.92] tracking-[-0.03em] text-[#14372b]">
                 Tea with a point of view.
@@ -207,17 +222,18 @@ const Home = () => {
               className="group inline-flex w-fit items-center gap-3 border-b border-[#8d5c3f]/55 pb-2 text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#8d5c3f]"
             >
               View the tea house
-              <ArrowUpRight className="h-4 w-4 stroke-[1.5] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              <ArrowUpRight className="h-4 w-4 stroke-[1.5] transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </button>
           </div>
 
           <div className="grid gap-5 lg:grid-cols-12 lg:grid-rows-[330px_330px]">
             {collections.map((collection, index) => (
               <button
-                data-reveal
+                data-reveal="scale"
+                data-reveal-delay={(index * 0.08).toFixed(2)}
                 key={collection.title}
                 onClick={() => go("/products")}
-                className={`group relative overflow-hidden bg-[#0c3025] text-left ${
+                className={`luxury-card luxury-frame group relative overflow-hidden bg-[#0c3025] text-left ${
                   index === 0
                     ? "lg:col-span-7 lg:row-span-2"
                     : "lg:col-span-5 lg:row-span-1"
@@ -228,11 +244,10 @@ const Home = () => {
                   alt={collection.title}
                   loading="lazy"
                   decoding="async"
-                  className="h-full min-h-[360px] w-full object-cover saturate-[0.82] contrast-[1.03] transition duration-[1400ms] ease-out group-hover:scale-[1.04] lg:min-h-0"
+                  className="luxury-image h-full min-h-[360px] w-full object-cover saturate-[0.80] contrast-[1.04] lg:min-h-0"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#071f18]/95 via-[#071f18]/24 to-[#071f18]/5" />
-                <div className="absolute inset-3 border border-white/0 transition-colors duration-500 group-hover:border-white/20" />
-                <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 lg:p-9">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#071f18]/95 via-[#071f18]/25 to-[#071f18]/4" />
+                <div className="absolute inset-x-0 bottom-0 z-[4] p-6 sm:p-8 lg:p-9">
                   <div className="mb-4 flex items-center gap-3 text-[0.58rem] font-semibold uppercase tracking-[0.2em] text-[#e1c27c]">
                     <span>{collection.number}</span>
                     <span className="h-px w-8 bg-[#e1c27c]/70" />
@@ -251,9 +266,10 @@ const Home = () => {
 
       <section className="relative overflow-hidden bg-[#0a2e23] py-24 text-[#fff9ed] md:py-32 lg:py-36">
         <div className="absolute inset-0 premium-grain opacity-[0.08]" />
+        <div className="absolute right-[-12rem] top-[-14rem] h-[34rem] w-[34rem] rounded-full bg-[#d8bd7a]/[0.055] blur-3xl" />
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
           <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
-            <div data-reveal>
+            <div data-reveal="left">
               <p className="premium-kicker premium-kicker-light">Leaf to export</p>
               <h2 className="mt-6 max-w-xl font-serif text-[clamp(3.2rem,5vw,5.8rem)] font-normal leading-[0.9] tracking-[-0.03em] text-[#fff9ed]">
                 Quiet process. Exacting choices.
@@ -261,8 +277,13 @@ const Home = () => {
             </div>
 
             <div className="divide-y divide-white/12 border-t border-white/12">
-              {process.map((item) => (
-                <div data-reveal key={item.number} className="grid gap-4 py-7 sm:grid-cols-[70px_0.75fr_1.25fr] sm:items-start sm:gap-6 md:py-9">
+              {process.map((item, index) => (
+                <div
+                  data-reveal="right"
+                  data-reveal-delay={(index * 0.055).toFixed(2)}
+                  key={item.number}
+                  className="grid gap-4 py-7 transition-colors duration-500 hover:bg-white/[0.025] sm:grid-cols-[70px_0.75fr_1.25fr] sm:items-start sm:gap-6 md:py-9"
+                >
                   <span className="text-[0.58rem] font-semibold uppercase tracking-[0.2em] text-[#e1c27c]">{item.number}</span>
                   <h3 className="font-serif text-2xl font-normal text-[#fff9ed] md:text-3xl">{item.title}</h3>
                   <p className="max-w-xl text-sm leading-7 text-white/60">{item.text}</p>
@@ -275,21 +296,21 @@ const Home = () => {
 
       <section className="bg-[#efe2cc] py-24 md:py-32 lg:py-36">
         <div className="mx-auto grid max-w-[1440px] gap-12 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20 lg:px-12">
-          <div data-reveal className="relative">
+          <div data-reveal="left" className="relative">
             <div className="absolute -left-5 -top-5 hidden h-full w-full border border-[#8d5c3f]/22 md:block" />
-            <div className="relative overflow-hidden bg-[#14372b] p-2 shadow-[0_30px_90px_rgba(20,55,43,0.13)]">
+            <div className="luxury-frame relative overflow-hidden bg-[#14372b] p-2 shadow-[0_30px_90px_rgba(20,55,43,0.13)]">
               <img
+                data-parallax
                 src="/image5.jpeg"
                 alt="Ceylon tea presentation and packaging"
                 loading="lazy"
                 decoding="async"
-                className="aspect-[5/4] w-full object-cover saturate-[0.8] contrast-[1.04]"
+                className="aspect-[5/4] w-full scale-[1.08] object-cover saturate-[0.8] contrast-[1.04]"
               />
-              <div className="pointer-events-none absolute inset-5 border border-white/20" />
             </div>
           </div>
 
-          <div data-reveal>
+          <div data-reveal="right">
             <p className="premium-kicker">Private-label atelier</p>
             <h2 className="mt-6 font-serif text-[clamp(3.1rem,5vw,5.8rem)] font-normal leading-[0.9] tracking-[-0.03em] text-[#14372b]">
               Your brand. <span className="italic text-[#8d5c3f]">Ceylon at its core.</span>
@@ -299,8 +320,11 @@ const Home = () => {
             </p>
 
             <div className="mt-10 border-y border-[#14372b]/16">
-              {atelierDetails.map((item) => (
-                <div key={item.number} className="grid grid-cols-[54px_1fr] gap-4 border-b border-[#14372b]/12 py-4 last:border-0 sm:grid-cols-[54px_0.8fr_1.2fr] sm:items-center">
+              {atelierDetails.map((item, index) => (
+                <div
+                  key={item.number}
+                  className="grid grid-cols-[54px_1fr] gap-4 border-b border-[#14372b]/12 py-4 transition-all duration-500 last:border-0 hover:translate-x-1 hover:border-[#8d5c3f]/30 sm:grid-cols-[54px_0.8fr_1.2fr] sm:items-center"
+                >
                   <span className="font-serif text-lg italic text-[#8d5c3f]">{item.number}</span>
                   <p className="text-[0.61rem] font-semibold uppercase tracking-[0.18em] text-[#14372b]">{item.label}</p>
                   <p className="col-start-2 text-xs tracking-[0.04em] text-[#6e6b5f] sm:col-start-auto">{item.detail}</p>
@@ -310,10 +334,10 @@ const Home = () => {
 
             <button
               onClick={() => go("/contact")}
-              className="group mt-10 inline-flex items-center gap-4 bg-[#14372b] px-6 py-4 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[#fff9ed] transition-colors hover:bg-[#8d5c3f]"
+              className="luxury-button group mt-10 inline-flex items-center gap-4 bg-[#14372b] px-6 py-4 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[#fff9ed] hover:bg-[#8d5c3f]"
             >
               Discuss a collection
-              <ArrowUpRight className="h-4 w-4 stroke-[1.5] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              <ArrowUpRight className="h-4 w-4 stroke-[1.5] transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </button>
           </div>
         </div>
@@ -322,7 +346,7 @@ const Home = () => {
       <section className="bg-[#fffaf0] py-24 md:py-32">
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
           <div className="grid gap-12 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
-            <div data-reveal>
+            <div data-reveal="left">
               <p className="premium-kicker">Beyond tea</p>
               <h2 className="mt-5 max-w-md font-serif text-[clamp(3rem,4.6vw,5.2rem)] font-normal leading-[0.92] tracking-[-0.03em] text-[#14372b]">
                 One island. More ways to experience it.
@@ -345,22 +369,22 @@ const Home = () => {
                   image: "/welness/image1.PNG",
                   path: "/wellness",
                 },
-              ].map((division) => (
+              ].map((division, index) => (
                 <button
-                  data-reveal
+                  data-reveal="scale"
+                  data-reveal-delay={(index * 0.08).toFixed(2)}
                   key={division.title}
                   onClick={() => go(division.path)}
                   className="group text-left"
                 >
-                  <div className="relative overflow-hidden bg-[#14372b] p-1.5">
+                  <div className="luxury-card luxury-frame relative overflow-hidden bg-[#14372b] p-1.5">
                     <img
                       src={division.image}
                       alt={division.title}
                       loading="lazy"
                       decoding="async"
-                      className="aspect-[4/3] w-full object-cover saturate-[0.78] contrast-[1.04] transition duration-[1200ms] group-hover:scale-[1.04]"
+                      className="luxury-image aspect-[4/3] w-full object-cover saturate-[0.78] contrast-[1.04]"
                     />
-                    <div className="pointer-events-none absolute inset-4 border border-white/20" />
                   </div>
                   <div className="flex items-start justify-between gap-5 border-b border-[#14372b]/14 py-5">
                     <div>
@@ -368,8 +392,8 @@ const Home = () => {
                       <h3 className="mt-2 font-serif text-3xl font-normal text-[#14372b]">{division.title}</h3>
                       <p className="mt-3 max-w-lg text-sm leading-6 text-[#66695f]">{division.copy}</p>
                     </div>
-                    <span className="mt-1 grid h-9 w-9 shrink-0 place-items-center border border-[#8d5c3f]/35 text-[#8d5c3f] transition-colors group-hover:bg-[#14372b] group-hover:text-[#fff9ed]">
-                      <ArrowUpRight className="h-4 w-4 stroke-[1.5] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    <span className="mt-1 grid h-9 w-9 shrink-0 place-items-center border border-[#8d5c3f]/35 text-[#8d5c3f] transition-all duration-500 group-hover:-translate-y-1 group-hover:bg-[#14372b] group-hover:text-[#fff9ed]">
+                      <ArrowUpRight className="h-4 w-4 stroke-[1.5]" />
                     </span>
                   </div>
                 </button>
@@ -381,20 +405,22 @@ const Home = () => {
 
       <section className="relative min-h-[68svh] overflow-hidden bg-[#08271e] text-[#fff9ed]">
         <img
+          data-parallax
           src="/image6.jpeg"
           alt="Ceylon tea estate landscape"
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 h-full w-full scale-[1.01] object-cover saturate-[0.78] contrast-[1.05]"
+          className="absolute inset-0 h-full w-full scale-[1.09] object-cover saturate-[0.76] contrast-[1.06]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,31,23,0.95),rgba(5,31,23,0.7)_58%,rgba(5,31,23,0.35))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,31,23,0.96),rgba(5,31,23,0.72)_58%,rgba(5,31,23,0.36))]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_40%,rgba(225,194,124,0.12),transparent_28%)]" />
         <div className="absolute inset-0 premium-grain opacity-[0.1]" />
         <div className="absolute inset-5 border border-white/[0.08] sm:inset-8" />
 
         <div className="relative z-10 mx-auto flex min-h-[68svh] max-w-[1440px] items-center px-5 py-24 sm:px-8 lg:px-12">
-          <div data-reveal className="max-w-4xl">
+          <div data-reveal="clip" className="max-w-4xl">
             <div className="flex items-center gap-4 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[#e1c27c]">
-              <span className="h-px w-10 bg-[#e1c27c]" />
+              <span className="luxury-rule" />
               <span>International sourcing · retail · hospitality</span>
             </div>
             <h2 className="mt-7 font-serif text-[clamp(3.7rem,7vw,7.5rem)] font-normal leading-[0.84] tracking-[-0.035em] text-[#fff9ed]">
@@ -405,10 +431,10 @@ const Home = () => {
             </p>
             <button
               onClick={() => go("/contact")}
-              className="group mt-9 inline-flex items-center gap-4 bg-[#e1c27c] px-7 py-4 text-[0.66rem] font-bold uppercase tracking-[0.2em] text-[#0a3125] transition-colors hover:bg-[#f0d99d]"
+              className="luxury-button group mt-9 inline-flex items-center gap-4 bg-[#e1c27c] px-7 py-4 text-[0.66rem] font-bold uppercase tracking-[0.2em] text-[#0a3125] hover:bg-[#f0d99d]"
             >
               Start an inquiry
-              <ArrowRight className="h-4 w-4 stroke-[1.5] transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="h-4 w-4 stroke-[1.5] transition-transform duration-500 group-hover:translate-x-1" />
             </button>
           </div>
         </div>
