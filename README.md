@@ -1,73 +1,50 @@
-# Welcome to your Lovable project
+# A. S. Exim Lanka
 
-## Project info
+Digital home for A. S. Exim Lanka, a Sri Lankan origin house focused on premium Ceylon tea, bespoke blends, private-label programs, island spices, and wellness experiences.
 
-**URL**: https://lovable.dev/projects/8a9ea1c9-21ad-46b8-bf3a-922566031160
+## Development
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/8a9ea1c9-21ad-46b8-bf3a-922566031160) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The local Vite server runs the React application with hot reload enabled.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Production build
 
-**Use GitHub Codespaces**
+```bash
+npm run build
+npm run preview
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Stack
 
-## What technologies are used for this project?
-
-This project is built with:
-
+- React + TypeScript
 - Vite
-- TypeScript
-- React
-- shadcn-ui
 - Tailwind CSS
+- React Router
+- GSAP for restrained motion
+- Radix UI primitives where interaction requires them
 
-## How can I deploy this project?
+## Brand direction
 
-Simply open [Lovable](https://lovable.dev/projects/8a9ea1c9-21ad-46b8-bf3a-922566031160) and click on Share -> Publish.
+The interface is designed as an editorial luxury origin-house experience rather than a generic ecommerce template. The visual language uses deep Ceylon green, warm ivory, restrained brass tones, serif-led typography, large-format origin photography, generous whitespace, and minimal functional iconography.
 
-## Can I connect a custom domain to my Lovable project?
+## Structure
 
-Yes, you can!
+- `src/pages` — primary site experiences
+- `src/components` — shared navigation, brand, footer, and interaction components
+- `public` — product, origin, spice, wellness, favicon, and social imagery
+- `src/assets` — supporting brand imagery and visual accents
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Quality checks
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Before shipping changes:
+
+```bash
+npm run lint
+npm run build
+```
+
+Keep imagery intentional, avoid generic UI card patterns, and prefer editorial hierarchy over decorative interface chrome.
