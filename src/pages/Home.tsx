@@ -1,323 +1,413 @@
 import { useNavigate } from "react-router-dom";
 import {
   ArrowRight,
-  Award,
-  CheckCircle,
-  Globe,
+  ArrowUpRight,
+  Globe2,
   Leaf,
-  Package,
-  Shield,
-  Sparkles,
+  PackageCheck,
+  ShieldCheck,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
-const divisions = [
+const teaRegions = [
+  "Nuwara Eliya",
+  "Uda Pussellawa",
+  "Uva",
+  "Dimbula",
+  "Kandy",
+  "Sabaragamuwa",
+  "Ruhuna",
+];
+
+const collections = [
   {
-    title: "Ceylon Tea",
-    eyebrow: "Seven region character",
+    number: "01",
+    title: "Single-origin Ceylon",
     description:
-      "Single-origin teas, retail caddies, private-label blends, and export-ready bulk programs.",
+      "Distinctive teas selected to preserve the character of origin, elevation, season, and manufacture.",
     image: "/image2.jpeg",
-    path: "/products",
   },
   {
-    title: "Island Spices",
-    eyebrow: "True Ceylon provenance",
+    number: "02",
+    title: "Signature & bespoke blends",
     description:
-      "Cinnamon, pepper, cloves, cardamom, nutmeg, turmeric, and ginger prepared for global buyers.",
-    image: "/spices/image1.jpeg",
-    path: "/spices",
+      "Balanced profiles developed for retail, hospitality, gifting, and market-specific preferences.",
+    image: "/image3.jpeg",
   },
   {
-    title: "Wellness Village",
-    eyebrow: "Eden Harvest",
+    number: "03",
+    title: "Private-label presentation",
     description:
-      "Ayurvedic retreats, organic gardens, eco-stays, and cultural wellness in Yodhakandiya.",
-    image: "/welness/image1.PNG",
-    path: "/wellness",
+      "Tea prepared as a complete brand experience across caddies, pouches, sachets, gift boxes, and bulk formats.",
+    image: "/image5.jpeg",
   },
 ];
 
-const standards = [
-  "ISO 22000:2018",
-  "HACCP systems",
-  "Ceylon Tea Board",
-  "Private label packing",
-  "Traceable sourcing",
-  "Export documentation",
-];
-
-const workflow = [
+const process = [
   {
-    icon: Leaf,
-    title: "Selective Sourcing",
-    text: "Direct supply relationships across tea, spice, and wellness-producing regions.",
+    number: "01",
+    title: "Source with intent",
+    text: "We begin with the cup profile, market, format, and origin story the final product needs to express.",
   },
   {
-    icon: Shield,
-    title: "Quality Discipline",
-    text: "Tasting, grading, sorting, and food-safety control before every export commitment.",
+    number: "02",
+    title: "Taste and grade",
+    text: "Leaf appearance, liquor, aroma, strength, brightness, and consistency guide each selection.",
   },
   {
-    icon: Package,
-    title: "Tailored Packing",
-    text: "Retail packs, tins, caddies, pouches, gift collections, and bulk formats.",
+    number: "03",
+    title: "Compose and pack",
+    text: "Single origins, blends, and presentation formats are brought together around the buyer brief.",
   },
   {
-    icon: Globe,
-    title: "Global Delivery",
-    text: "Prepared for distributors, retailers, private labels, and hospitality partners.",
+    number: "04",
+    title: "Prepare for export",
+    text: "Commercial packing and documentation are coordinated for international retail and distribution programs.",
   },
 ];
 
 const Home = () => {
   const navigate = useNavigate();
 
+  const go = (path: string) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <div className="min-h-screen bg-[#fffaf0]">
-      <section className="relative min-h-[96svh] overflow-hidden">
+    <div className="min-h-screen bg-[#f7f0e3] text-[#14372b]">
+      <section className="relative min-h-[100svh] overflow-hidden bg-[#092d22] text-[#fff9ed]">
         <div className="absolute inset-0">
           <img
             src="/image.png"
-            alt="A. S. Exim Lanka tea estate"
-            className="h-full w-full object-cover"
+            alt="Sri Lankan tea country"
+            className="h-full w-full object-cover object-center hero-ken-burns"
+            fetchPriority="high"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,45,33,0.92)_0%,rgba(10,45,33,0.72)_38%,rgba(10,45,33,0.16)_72%,rgba(10,45,33,0.5)_100%)]" />
-          <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#fffaf0] to-transparent" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,31,23,0.96)_0%,rgba(7,39,29,0.84)_42%,rgba(7,39,29,0.28)_72%,rgba(7,39,29,0.55)_100%)]" />
+          <div className="absolute inset-0 premium-grain opacity-[0.12]" />
+          <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#092d22]/80 to-transparent" />
         </div>
 
-        <div className="container relative z-10 mx-auto flex min-h-[96svh] items-end px-6 pb-14 pt-36 md:pb-20">
-          <div className="grid w-full gap-10 lg:grid-cols-[1fr_360px] lg:items-end">
-            <div className="max-w-4xl">
-              <p className="mb-5 max-w-[18rem] text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#f7d789] sm:max-w-none sm:text-xs sm:tracking-[0.26em]">
-                A. S. Exim Lanka - Ceylon export house
-              </p>
-              <h1 className="max-w-4xl text-balance font-serif text-[2.1rem] font-semibold leading-[1.04] text-[#fffaf0] min-[420px]:text-4xl sm:text-5xl md:text-7xl lg:text-8xl">
-                Serenity from Sri Lanka, prepared for the world.
+        <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1440px] items-end px-5 pb-16 pt-32 sm:px-8 md:pb-20 lg:px-12 lg:pb-24">
+          <div className="grid w-full gap-12 lg:grid-cols-[minmax(0,1fr)_330px] lg:items-end xl:gap-20">
+            <div className="max-w-5xl">
+              <div className="mb-7 flex items-center gap-4">
+                <span className="h-px w-10 bg-[#e1c27c]" />
+                <p className="text-[0.64rem] font-semibold uppercase tracking-[0.25em] text-[#e1c27c] sm:text-[0.68rem]">
+                  Sri Lanka · Ceylon origin house
+                </p>
+              </div>
+
+              <h1 className="max-w-5xl text-balance font-serif text-[clamp(3.9rem,9vw,9rem)] font-normal leading-[0.82] tracking-[-0.035em] text-[#fff9ed]">
+                Born in Ceylon.
+                <span className="mt-3 block italic text-[#e5c982]">Composed for the world.</span>
               </h1>
-              <p className="mt-7 max-w-2xl text-lg leading-8 text-white/80 md:text-xl">
-                Premium Ceylon tea, true island spices, and wellness hospitality
-                shaped by heritage, disciplined sourcing, and refined presentation.
-              </p>
-              <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-                <Button
-                  size="lg"
-                  onClick={() => navigate("/products")}
-                  className="w-full rounded-md bg-[#d8b66f] px-6 py-6 text-sm font-bold uppercase tracking-[0.14em] text-[#103b2c] shadow-[0_18px_40px_rgba(216,182,111,0.26)] hover:bg-[#f0cf85] sm:w-auto sm:px-8 sm:tracking-[0.16em]"
-                >
-                  Explore Tea
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  onClick={() => navigate("/contact")}
-                  className="w-full rounded-md border-white/45 bg-white/10 px-6 py-6 text-sm font-bold uppercase tracking-[0.14em] text-white backdrop-blur hover:bg-[#fffaf0] hover:text-[#103b2c] sm:w-auto sm:px-8 sm:tracking-[0.16em]"
-                >
-                  Start an Inquiry
-                </Button>
+
+              <div className="mt-8 grid max-w-3xl gap-7 md:grid-cols-[1fr_auto] md:items-end">
+                <p className="max-w-2xl text-[1rem] font-light leading-8 text-white/75 md:text-lg">
+                  An origin-led house for exceptional Ceylon tea, sourcing across Sri Lanka’s
+                  seven tea-growing regions and preparing distinctive collections for retail,
+                  hospitality, gifting, and private-label partners.
+                </p>
+
+                <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
+                  <button
+                    onClick={() => go("/products")}
+                    className="group inline-flex items-center justify-between gap-6 bg-[#e1c27c] px-6 py-4 text-[0.66rem] font-bold uppercase tracking-[0.2em] text-[#0a3125] transition-colors hover:bg-[#f0d99d]"
+                  >
+                    Discover tea
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </button>
+                  <button
+                    onClick={() => go("/contact")}
+                    className="group inline-flex items-center justify-between gap-6 border border-white/35 px-6 py-4 text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:border-[#e1c27c] hover:text-[#e1c27c]"
+                  >
+                    Source with us
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </button>
+                </div>
               </div>
             </div>
 
-            <div className="border border-white/25 bg-[#fffaf0]/86 p-5 shadow-[0_24px_70px_rgba(15,58,42,0.2)] backdrop-blur-xl" style={{ borderRadius: 8 }}>
-              <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#8a4b2f]">
-                Export focus
+            <aside className="border-t border-white/25 pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+              <p className="text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-[#e1c27c]">
+                The island in numbers
               </p>
-              <div className="mt-5 grid gap-4">
+              <div className="mt-6 grid grid-cols-3 gap-5 lg:grid-cols-1 lg:gap-6">
                 {[
-                  ["47", "years heritage"],
-                  ["50+", "global markets"],
-                  ["3", "core divisions"],
+                  ["7", "tea-growing regions"],
+                  ["3", "origin-led divisions"],
+                  ["1", "Sri Lankan house"],
                 ].map(([value, label]) => (
-                  <div key={label} className="flex items-end justify-between border-b border-[#103b2c]/12 pb-4 last:border-0 last:pb-0">
-                    <span className="font-serif text-5xl leading-none text-[#103b2c]">
-                      {value}
-                    </span>
-                    <span className="max-w-[120px] text-right text-xs font-bold uppercase tracking-[0.14em] text-[#6b675b]">
+                  <div key={label} className="border-b border-white/14 pb-5 last:border-0">
+                    <span className="font-serif text-4xl leading-none text-[#fff9ed] md:text-5xl">{value}</span>
+                    <span className="mt-2 block max-w-[10rem] text-[0.58rem] font-semibold uppercase leading-5 tracking-[0.17em] text-white/52">
                       {label}
                     </span>
                   </div>
                 ))}
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-[#14372b]/12 bg-[#f7f0e3]">
+        <div className="mx-auto max-w-[1440px] px-5 py-6 sm:px-8 lg:px-12">
+          <div className="flex gap-7 overflow-x-auto pb-1 scrollbar-none lg:grid lg:grid-cols-7 lg:gap-4 lg:overflow-visible">
+            {teaRegions.map((region, index) => (
+              <div key={region} className="min-w-max lg:min-w-0">
+                <p className="text-[0.55rem] font-semibold uppercase tracking-[0.18em] text-[#9a7650]">0{index + 1}</p>
+                <p className="mt-1 font-serif text-lg text-[#14372b]">{region}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f7f0e3] py-24 md:py-32 lg:py-40">
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
+            <div data-reveal>
+              <p className="premium-kicker">A sense of place</p>
+              <p className="mt-6 max-w-xs text-sm leading-7 text-[#6e6b5f]">
+                Every tea begins somewhere specific. We believe premium presentation should make that origin more visible, not less.
+              </p>
+            </div>
+
+            <div data-reveal>
+              <h2 className="max-w-5xl font-serif text-[clamp(3.2rem,6vw,6.6rem)] font-normal leading-[0.92] tracking-[-0.03em] text-[#14372b]">
+                An island measured in <span className="italic text-[#8d5c3f]">altitude, rain, season, and leaf.</span>
+              </h2>
+              <div className="mt-10 grid gap-8 border-t border-[#14372b]/14 pt-8 md:grid-cols-2">
+                <p className="text-base leading-8 text-[#5f6258]">
+                  Ceylon tea is not one flavour. Sri Lanka’s elevations and climatic zones create a remarkable spectrum of cup character. Our role is to preserve that distinction while shaping it for contemporary markets.
+                </p>
+                <p className="text-base leading-8 text-[#5f6258]">
+                  The result is a quieter kind of luxury: clear provenance, disciplined selection, considered packing, and a product story that starts with where the leaf was grown.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div>
-        <section className="py-20 md:py-28">
-          <div className="container mx-auto px-6">
-            <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-              <div data-reveal>
-                <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#8a4b2f]">
-                  Three pillars
-                </p>
-                <h2 className="mt-4 font-serif text-4xl leading-tight text-[#103b2c] md:text-6xl">
-                  A refined platform for Ceylon origin products.
-                </h2>
-              </div>
-              <p data-reveal className="max-w-2xl text-lg leading-8 text-[#6b675b] lg:ml-auto">
-                The platform stays familiar: tea, spices, wellness, company story,
-                and contact pathways. The design now presents those divisions as one
-                premium export brand.
-              </p>
+      <section className="bg-[#fffaf0] py-24 md:py-32">
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+          <div className="mb-14 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+            <div data-reveal>
+              <p className="premium-kicker">The Ceylon collection</p>
+              <h2 className="mt-5 max-w-3xl font-serif text-[clamp(3rem,5vw,5.6rem)] font-normal leading-[0.92] tracking-[-0.03em] text-[#14372b]">
+                Tea with a point of view.
+              </h2>
+            </div>
+            <button
+              data-reveal
+              onClick={() => go("/products")}
+              className="group inline-flex w-fit items-center gap-3 border-b border-[#8d5c3f]/55 pb-2 text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#8d5c3f]"
+            >
+              View the tea house
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </button>
+          </div>
+
+          <div className="grid gap-5 lg:grid-cols-12 lg:grid-rows-[330px_330px]">
+            {collections.map((collection, index) => (
+              <button
+                data-reveal
+                key={collection.title}
+                onClick={() => go("/products")}
+                className={`group relative overflow-hidden bg-[#0c3025] text-left ${
+                  index === 0
+                    ? "lg:col-span-7 lg:row-span-2"
+                    : "lg:col-span-5 lg:row-span-1"
+                }`}
+              >
+                <img
+                  src={collection.image}
+                  alt={collection.title}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full min-h-[360px] w-full object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.035] lg:min-h-0"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#071f18]/95 via-[#071f18]/22 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 lg:p-9">
+                  <div className="mb-4 flex items-center gap-3 text-[0.58rem] font-semibold uppercase tracking-[0.2em] text-[#e1c27c]">
+                    <span>{collection.number}</span>
+                    <span className="h-px w-8 bg-[#e1c27c]/70" />
+                    <span>Collection</span>
+                  </div>
+                  <h3 className={`font-serif font-normal leading-none text-[#fff9ed] ${index === 0 ? "text-4xl md:text-6xl" : "text-3xl md:text-4xl"}`}>
+                    {collection.title}
+                  </h3>
+                  <p className="mt-4 max-w-xl text-sm leading-6 text-white/64">{collection.description}</p>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden bg-[#0a2e23] py-24 text-[#fff9ed] md:py-32 lg:py-36">
+        <div className="absolute inset-0 premium-grain opacity-[0.08]" />
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
+            <div data-reveal>
+              <p className="premium-kicker premium-kicker-light">Leaf to export</p>
+              <h2 className="mt-6 max-w-xl font-serif text-[clamp(3.2rem,5vw,5.8rem)] font-normal leading-[0.9] tracking-[-0.03em] text-[#fff9ed]">
+                Quiet process. Exacting choices.
+              </h2>
             </div>
 
-            <div className="mt-12 grid gap-6 lg:grid-cols-3">
-              {divisions.map((division) => (
+            <div className="divide-y divide-white/12 border-t border-white/12">
+              {process.map((item) => (
+                <div data-reveal key={item.number} className="grid gap-4 py-7 sm:grid-cols-[70px_0.75fr_1.25fr] sm:items-start sm:gap-6 md:py-9">
+                  <span className="text-[0.58rem] font-semibold uppercase tracking-[0.2em] text-[#e1c27c]">{item.number}</span>
+                  <h3 className="font-serif text-2xl font-normal text-[#fff9ed] md:text-3xl">{item.title}</h3>
+                  <p className="max-w-xl text-sm leading-7 text-white/60">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#efe2cc] py-24 md:py-32 lg:py-36">
+        <div className="mx-auto grid max-w-[1440px] gap-12 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20 lg:px-12">
+          <div data-reveal className="relative">
+            <div className="absolute -left-5 -top-5 hidden h-full w-full border border-[#8d5c3f]/22 md:block" />
+            <img
+              src="/image5.jpeg"
+              alt="Ceylon tea presentation and packaging"
+              loading="lazy"
+              decoding="async"
+              className="relative aspect-[5/4] w-full object-cover shadow-[0_30px_90px_rgba(20,55,43,0.13)]"
+            />
+          </div>
+
+          <div data-reveal>
+            <p className="premium-kicker">Private-label atelier</p>
+            <h2 className="mt-6 font-serif text-[clamp(3.1rem,5vw,5.8rem)] font-normal leading-[0.9] tracking-[-0.03em] text-[#14372b]">
+              Your brand. <span className="italic text-[#8d5c3f]">Ceylon at its core.</span>
+            </h2>
+            <p className="mt-7 max-w-xl text-base leading-8 text-[#5f6258]">
+              We treat private label as more than putting a logo on a pack. Tea profile, format, presentation, gifting, and export requirements should feel like one coherent product experience.
+            </p>
+
+            <div className="mt-9 grid gap-4 sm:grid-cols-3">
+              {[
+                { icon: Leaf, label: "Tea selection" },
+                { icon: PackageCheck, label: "Pack formats" },
+                { icon: ShieldCheck, label: "Buyer specs" },
+              ].map((item) => (
+                <div key={item.label} className="border-t border-[#14372b]/18 pt-4">
+                  <item.icon className="h-5 w-5 text-[#8d5c3f]" />
+                  <p className="mt-3 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#14372b]">{item.label}</p>
+                </div>
+              ))}
+            </div>
+
+            <button
+              onClick={() => go("/contact")}
+              className="group mt-10 inline-flex items-center gap-4 bg-[#14372b] px-6 py-4 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[#fff9ed] transition-colors hover:bg-[#8d5c3f]"
+            >
+              Discuss a collection
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#fffaf0] py-24 md:py-32">
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+          <div className="grid gap-12 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
+            <div data-reveal>
+              <p className="premium-kicker">Beyond tea</p>
+              <h2 className="mt-5 max-w-md font-serif text-[clamp(3rem,4.6vw,5.2rem)] font-normal leading-[0.92] tracking-[-0.03em] text-[#14372b]">
+                One island. More ways to experience it.
+              </h2>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2">
+              {[
+                {
+                  eyebrow: "Island spice house",
+                  title: "Ceylon spices",
+                  copy: "Cinnamon, pepper, cloves, cardamom, nutmeg, turmeric, and ginger prepared for international buyers.",
+                  image: "/spices/image1.jpeg",
+                  path: "/spices",
+                },
+                {
+                  eyebrow: "Eden Harvest",
+                  title: "Wellness village",
+                  copy: "A slower expression of Sri Lanka through gardens, nature, wellness, hospitality, and place.",
+                  image: "/welness/image1.PNG",
+                  path: "/wellness",
+                },
+              ].map((division) => (
                 <button
                   data-reveal
                   key={division.title}
-                  onClick={() => navigate(division.path)}
-                  className="group overflow-hidden border border-[#103b2c]/12 bg-[#fffdf7] text-left shadow-[0_18px_45px_rgba(31,33,28,0.08)] transition hover:-translate-y-1 hover:border-[#d8b66f]/70"
-                  style={{ borderRadius: 8 }}
+                  onClick={() => go(division.path)}
+                  className="group text-left"
                 >
-                  <div className="aspect-[4/3] overflow-hidden">
+                  <div className="overflow-hidden bg-[#14372b]">
                     <img
                       src={division.image}
                       alt={division.title}
-                      className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
+                      className="aspect-[4/3] w-full object-cover transition duration-[1000ms] group-hover:scale-[1.035]"
                     />
                   </div>
-                  <div className="p-6">
-                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#8a4b2f]">
-                      {division.eyebrow}
-                    </p>
-                    <h3 className="mt-3 font-serif text-3xl text-[#103b2c]">
-                      {division.title}
-                    </h3>
-                    <p className="mt-4 min-h-[84px] text-sm leading-7 text-[#6b675b]">
-                      {division.description}
-                    </p>
-                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.14em] text-[#103b2c]">
-                      View division
-                      <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                    </span>
+                  <div className="flex items-start justify-between gap-5 border-b border-[#14372b]/14 py-5">
+                    <div>
+                      <p className="text-[0.57rem] font-semibold uppercase tracking-[0.2em] text-[#8d5c3f]">{division.eyebrow}</p>
+                      <h3 className="mt-2 font-serif text-3xl font-normal text-[#14372b]">{division.title}</h3>
+                      <p className="mt-3 max-w-lg text-sm leading-6 text-[#66695f]">{division.copy}</p>
+                    </div>
+                    <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-[#8d5c3f] transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
                   </div>
                 </button>
               ))}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="bg-[#103b2c] py-20 text-[#fffaf0] md:py-28">
-          <div className="container mx-auto px-6">
-            <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-              <div data-reveal>
-                <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#d8b66f]">
-                  Estate to export
-                </p>
-                <h2 className="mt-4 font-serif text-4xl leading-tight md:text-6xl">
-                  Quiet process. Exacting standards.
-                </h2>
-                <p className="mt-6 text-lg leading-8 text-white/70">
-                  A luxury brand still has to perform operationally. The site now
-                  frames the company around traceable sourcing, controlled packing,
-                  and international buyer confidence.
-                </p>
-              </div>
+      <section className="relative min-h-[68svh] overflow-hidden bg-[#08271e] text-[#fff9ed]">
+        <img
+          src="/image6.jpeg"
+          alt="Ceylon tea estate landscape"
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,31,23,0.95),rgba(5,31,23,0.7)_58%,rgba(5,31,23,0.35))]" />
+        <div className="absolute inset-0 premium-grain opacity-[0.1]" />
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                {workflow.map((item) => (
-                  <div
-                    data-reveal
-                    key={item.title}
-                    className="border border-white/12 bg-white/[0.06] p-6"
-                    style={{ borderRadius: 8 }}
-                  >
-                    <item.icon className="h-7 w-7 text-[#d8b66f]" />
-                    <h3 className="mt-5 font-serif text-2xl text-[#f7e4b0]">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-7 text-white/70">{item.text}</p>
-                  </div>
-                ))}
-              </div>
+        <div className="relative z-10 mx-auto flex min-h-[68svh] max-w-[1440px] items-center px-5 py-24 sm:px-8 lg:px-12">
+          <div data-reveal className="max-w-4xl">
+            <div className="flex items-center gap-3 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[#e1c27c]">
+              <Globe2 className="h-4 w-4" />
+              <span>For buyers, retailers & hospitality partners</span>
             </div>
+            <h2 className="mt-7 font-serif text-[clamp(3.7rem,7vw,7.5rem)] font-normal leading-[0.84] tracking-[-0.035em] text-[#fff9ed]">
+              Source Ceylon <span className="italic text-[#e5c982]">differently.</span>
+            </h2>
+            <p className="mt-7 max-w-2xl text-base leading-8 text-white/68">
+              Tell us the cup profile, market, format, or collection you are trying to create. We will start the conversation from there.
+            </p>
+            <button
+              onClick={() => go("/contact")}
+              className="group mt-9 inline-flex items-center gap-4 bg-[#e1c27c] px-7 py-4 text-[0.66rem] font-bold uppercase tracking-[0.2em] text-[#0a3125] transition-colors hover:bg-[#f0d99d]"
+            >
+              Start an inquiry
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </button>
           </div>
-        </section>
-
-        <section className="py-20 md:py-28">
-          <div className="container mx-auto px-6">
-            <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-              <div data-reveal className="relative">
-                <img
-                  src="/image5.jpeg"
-                  alt="Premium Ceylon tea packaging"
-                  className="aspect-[5/4] w-full object-cover shadow-[0_26px_70px_rgba(31,33,28,0.14)]"
-                  style={{ borderRadius: 8 }}
-                />
-                <div className="absolute bottom-5 left-5 right-5 border border-white/35 bg-[#fffaf0]/88 p-5 backdrop-blur-xl" style={{ borderRadius: 8 }}>
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#8a4b2f]">
-                    Private label ready
-                  </p>
-                  <p className="mt-2 font-serif text-2xl text-[#103b2c]">
-                    Caddies, tins, gift boxes, sachets, and bulk packs.
-                  </p>
-                </div>
-              </div>
-
-              <div data-reveal>
-                <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#8a4b2f]">
-                  Global standards
-                </p>
-                <h2 className="mt-4 font-serif text-4xl leading-tight text-[#103b2c] md:text-6xl">
-                  Confidence buyers can see before the first sample.
-                </h2>
-                <p className="mt-6 text-lg leading-8 text-[#6b675b]">
-                  Certifications, export readiness, and packaging flexibility are
-                  elevated visually so international buyers can scan the company
-                  strengths quickly.
-                </p>
-                <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                  {standards.map((standard) => (
-                    <div key={standard} className="flex items-center gap-3 border border-[#103b2c]/10 bg-[#fffdf7] p-4" style={{ borderRadius: 8 }}>
-                      <Award className="h-5 w-5 shrink-0 text-[#8a4b2f]" />
-                      <span className="text-sm font-semibold text-[#344137]">
-                        {standard}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#f0e4c9] py-20 md:py-28">
-          <div className="container mx-auto px-6">
-            <div className="mx-auto max-w-5xl text-center">
-              <Sparkles data-reveal className="mx-auto h-9 w-9 text-[#8a4b2f]" />
-              <h2 data-reveal className="mt-5 font-serif text-4xl leading-tight text-[#103b2c] md:text-6xl">
-                Premium origin, presented with restraint.
-              </h2>
-              <p data-reveal className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#6b675b]">
-                The refreshed interface trades generic shine for editorial spacing,
-                tactile imagery, warmer ivory surfaces, and a composed luxury palette
-                inspired by the supplied reference.
-              </p>
-              <div data-reveal className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-                <Button
-                  size="lg"
-                  onClick={() => navigate("/about")}
-                  className="rounded-md bg-[#103b2c] px-8 py-6 text-sm font-bold uppercase tracking-[0.16em] text-[#fffaf0] hover:bg-[#8a4b2f]"
-                >
-                  Our Story
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  onClick={() => navigate("/contact")}
-                  className="rounded-md border-[#103b2c]/25 bg-[#fffaf0] px-8 py-6 text-sm font-bold uppercase tracking-[0.16em] text-[#103b2c] hover:bg-[#103b2c] hover:text-[#fffaf0]"
-                >
-                  Discuss Partnership
-                  <CheckCircle className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   );
 };

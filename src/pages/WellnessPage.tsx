@@ -1,355 +1,154 @@
-import { Heart, Leaf, Home, Users, Sparkles, ArrowRight, TreePine, Waves, Sun, Moon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, ArrowUpRight, Heart, Home, Leaf, Sun } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+
+const pillars = [
+  {
+    icon: Heart,
+    title: "Ayurvedic wellbeing",
+    text: "Traditional Sri Lankan wellness practices framed around rest, care, and a slower rhythm of living.",
+  },
+  {
+    icon: Leaf,
+    title: "Organic harvest",
+    text: "Gardens, ingredients, and farm-led experiences that reconnect food, land, and daily wellbeing.",
+  },
+  {
+    icon: Home,
+    title: "Eco hospitality",
+    text: "A nature-led approach to stays and spaces designed to sit quietly within the surrounding landscape.",
+  },
+  {
+    icon: Sun,
+    title: "Local experience",
+    text: "Yoga, meditation, farming, cooking, village culture, and time outdoors as part of a wider Sri Lankan stay.",
+  },
+];
+
+const experiences = [
+  ["Ayurvedic care", "Consultations, traditional therapies, herbal practices, and restorative routines."],
+  ["Garden & table", "Organic growing, harvesting, cooking, and ingredient-led experiences."],
+  ["Nature", "Walks, cycling, birdlife, water, sunrise, and unstructured time outdoors."],
+  ["Culture", "Local food, craft, farming, and village experiences shaped by the surrounding community."],
+];
 
 const WellnessPage = () => {
   const navigate = useNavigate();
 
-  const features = [
-    {
-      icon: Heart,
-      title: "Kadahapola Ayurvedic",
-      description: "Authentic treatments rooted in Sri Lankan Ayurveda",
-      color: "from-rose-500 to-pink-600",
-    },
-    {
-      icon: Leaf,
-      title: "Organic Harvest Theme",
-      description: "Farm-to-table dining with produce from on-site gardens",
-      color: "from-green-500 to-emerald-600",
-    },
-    {
-      icon: Home,
-      title: "Eco-Resorts",
-      description: "Sustainable architecture blending with natural landscapes",
-      color: "from-blue-500 to-cyan-600",
-    },
-    {
-      icon: Users,
-      title: "Cultural Immersion",
-      description: "Traditional farming, yoga, meditation, village experiences",
-      color: "from-amber-500 to-orange-600",
-    },
-  ];
-
-  const experiences = [
-    {
-      title: "Ayurvedic Wellness Programs",
-      items: [
-        "Traditional Panchakarma treatments",
-        "Personalized wellness consultations",
-        "Herbal medicine and natural therapies",
-        "Meditation and mindfulness sessions",
-      ],
-    },
-    {
-      title: "Farm & Garden Experiences",
-      items: [
-        "Organic farming workshops",
-        "Herb garden tours and harvesting",
-        "Cooking classes with fresh produce",
-        "Tea and spice plantation visits",
-      ],
-    },
-    {
-      title: "Nature & Adventure",
-      items: [
-        "Lakeside walks around Yodha Wewa",
-        "Bird watching and nature trails",
-        "Cycling through paddy fields",
-        "Sunrise and sunset yoga sessions",
-      ],
-    },
-    {
-      title: "Cultural Heritage",
-      items: [
-        "Traditional village ceremonies",
-        "Local craft workshops",
-        "Sri Lankan cooking experiences",
-        "Cultural dance performances",
-      ],
-    },
-  ];
+  const go = (path: string) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative py-32 md:py-48 overflow-hidden bg-gradient-to-br from-emerald-950 via-teal-900 to-cyan-950">
-        <div className="absolute inset-0 opacity-30">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-fixed"
-            style={{
-              backgroundImage: "url('/welness/image1.PNG')",
-            }}
-          />
-        </div>
+    <div className="min-h-screen bg-[#fffaf0] text-[#14372b]">
+      <section className="relative min-h-[80svh] overflow-hidden bg-[#08271e] text-[#fff9ed]">
+        <img
+          src="/welness/image1.PNG"
+          alt="Eden Harvest Wellness Village landscape"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          fetchPriority="high"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,31,23,0.95)_0%,rgba(5,31,23,0.78)_50%,rgba(5,31,23,0.28)_82%)]" />
+        <div className="absolute inset-0 premium-grain opacity-[0.09]" />
 
-        {/* Animated particles */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-emerald-400/20 rounded-full animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-              }}
-            />
-          ))}
-        </div>
-
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md border border-emerald-500/30 rounded-full">
-              <Sparkles className="w-5 h-5 text-emerald-400" />
-              <span className="text-emerald-400 text-sm tracking-[0.3em] uppercase font-medium">
-                Eden Harvest Wellness Village
-              </span>
-            </div>
-
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white leading-tight">
-              Go Green
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-500">
-                Go Pure • Go Wellness
-              </span>
+        <div className="relative z-10 mx-auto flex min-h-[80svh] max-w-[1440px] items-end px-5 pb-16 pt-32 sm:px-8 md:pb-20 lg:px-12 lg:pb-24">
+          <div className="max-w-5xl">
+            <p className="premium-kicker premium-kicker-light">Eden Harvest · Yodhakandiya</p>
+            <h1 className="mt-7 max-w-5xl font-serif text-[clamp(4.2rem,8.5vw,8.6rem)] font-normal leading-[0.83] tracking-[-0.04em] text-[#fff9ed]">
+              A slower side
+              <span className="mt-2 block italic text-[#e5c982]">of the island.</span>
             </h1>
-
-            <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed">
-              Experience authentic Ayurvedic healing, organic agriculture, and eco-tourism
-              in our 15-acre wellness sanctuary at Yodhakandiya.
+            <p className="mt-8 max-w-2xl text-base font-light leading-8 text-white/70 md:text-lg">
+              Eden Harvest Wellness Village brings together Sri Lankan Ayurveda, organic agriculture, nature, culture, and eco-hospitality across a 15-acre setting in Yodhakandiya.
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-              <Button
-                size="lg"
-                onClick={() => navigate("/contact")}
-                className="bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white px-10 py-7 text-lg font-medium rounded-full shadow-xl hover:scale-105 transition-all duration-300"
-              >
-                Book Your Retreat
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
+            <button
+              onClick={() => go("/contact")}
+              className="group mt-9 inline-flex items-center gap-4 bg-[#e1c27c] px-7 py-4 text-[0.66rem] font-bold uppercase tracking-[0.2em] text-[#0a3125] transition-colors hover:bg-[#f0d99d]"
+            >
+              Ask about Eden Harvest
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </button>
           </div>
         </div>
-
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
       </section>
 
-      {/* Vision Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto text-center space-y-8">
-            <p className="text-emerald-600 text-sm tracking-[0.3em] uppercase mb-4 font-medium">
-              Our Vision
-            </p>
-            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">
-              A Holistic Lifestyle Experience
+      <section className="bg-[#fffaf0] py-24 md:py-32 lg:py-36">
+        <div className="mx-auto grid max-w-[1440px] gap-14 px-5 sm:px-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20 lg:px-12">
+          <div data-reveal>
+            <p className="premium-kicker">The vision</p>
+            <h2 className="mt-6 max-w-lg font-serif text-[clamp(3.1rem,4.8vw,5.5rem)] font-normal leading-[0.92] tracking-[-0.03em] text-[#14372b]">
+              Wellness as place, not just a programme.
             </h2>
-            <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-emerald-600 to-transparent mx-auto mb-8" />
-            
-            <p className="text-xl text-gray-700 leading-relaxed">
-              The Eden Harvest Wellness Village at Yodhakandiya spans over 15 acres, 
-              surrounded by serene paddy fields and the tranquil Yodha Wewa Lake.
-            </p>
-            
-            <p className="text-lg text-gray-600 leading-relaxed">
-              We combine Ayurvedic healing, organic agriculture, eco-tourism, and wellness 
-              retreats to create a holistic lifestyle experience that positions Yodhakandiya 
-              as a model "Wellness Village of Sri Lanka," uniting health, heritage, and sustainability.
+          </div>
+          <div data-reveal className="self-end">
+            <p className="max-w-2xl text-base leading-8 text-[#62665d]">
+              The project is conceived as a holistic Sri Lankan experience: paddy fields, water, gardens, local food, traditional wellbeing practices, and unhurried hospitality working together rather than competing for attention.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="text-emerald-600 text-sm tracking-[0.3em] uppercase mb-4 font-medium">
-              What We Offer
-            </p>
-            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">
-              Four Pillars of Wellness
+      <section className="bg-[#efe2cc] py-24 md:py-32">
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+          <div data-reveal className="mb-14 max-w-4xl">
+            <p className="premium-kicker">Four pillars</p>
+            <h2 className="mt-6 font-serif text-[clamp(3.2rem,5vw,5.8rem)] font-normal leading-[0.9] tracking-[-0.03em] text-[#14372b]">
+              A village built around wellbeing in the broadest sense.
             </h2>
-            <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-emerald-600 to-transparent mx-auto" />
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100"
-              >
-                <div className={`w-20 h-20 mx-auto mb-6 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl`}>
-                  <feature.icon className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-xl font-serif text-gray-900 mb-3 text-center">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed text-center">
-                  {feature.description}
-                </p>
+          <div className="grid gap-px bg-[#14372b]/12 sm:grid-cols-2 lg:grid-cols-4">
+            {pillars.map((pillar) => (
+              <div data-reveal key={pillar.title} className="bg-[#efe2cc] p-7 md:p-8">
+                <pillar.icon className="h-6 w-6 text-[#8d5c3f]" />
+                <h3 className="mt-7 font-serif text-3xl font-normal leading-tight text-[#14372b]">{pillar.title}</h3>
+                <p className="mt-5 text-sm leading-7 text-[#66695f]">{pillar.text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Kadahapola Ayurvedic Section */}
-      <section className="premium-dark-section py-32 bg-gradient-to-br from-emerald-950 via-teal-900 to-emerald-950 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: "url('/welness/image2.PNG')",
-            }}
-          />
-        </div>
+      <section className="bg-[#0a2e23] py-24 text-[#fff9ed] md:py-32 lg:py-36">
+        <div className="mx-auto grid max-w-[1440px] gap-14 px-5 sm:px-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-20 lg:px-12">
+          <div data-reveal className="relative">
+            <img
+              src="/welness/image2.PNG"
+              alt="Eden Harvest wellness setting"
+              loading="lazy"
+              decoding="async"
+              className="aspect-[5/4] w-full object-cover"
+            />
+          </div>
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-serif text-white mb-6">
-                Kadahapola Ayurvedic Partnership
+          <div data-reveal>
+            <p className="premium-kicker premium-kicker-light">Ayurvedic partnership</p>
+            <h2 className="mt-6 font-serif text-[clamp(3.2rem,5vw,5.8rem)] font-normal leading-[0.9] tracking-[-0.03em] text-[#fff9ed]">
+              Traditional care, placed within a <span className="italic text-[#e5c982]">living landscape.</span>
+            </h2>
+            <p className="mt-7 max-w-xl text-base leading-8 text-white/64">
+              Wellness programming is being developed with Kadahapola Ayurvedic, connecting established Sri Lankan healing traditions with the gardens, food, nature, and hospitality of the wider village concept.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#fffaf0] py-24 md:py-32">
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+          <div className="grid gap-12 lg:grid-cols-[0.62fr_1.38fr] lg:gap-20">
+            <div data-reveal>
+              <p className="premium-kicker">The stay</p>
+              <h2 className="mt-6 max-w-lg font-serif text-[clamp(3rem,4.6vw,5.2rem)] font-normal leading-[0.92] tracking-[-0.03em] text-[#14372b]">
+                Less itinerary. More immersion.
               </h2>
-              <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-emerald-400 to-transparent mx-auto" />
             </div>
 
-            <div className="bg-white/10 backdrop-blur-md p-10 md:p-16 rounded-3xl border border-white/20">
-              <p className="text-xl text-white/90 leading-relaxed mb-8 text-center">
-                Our wellness programs are developed in partnership with Kadahapola Ayurvedic, 
-                bringing centuries-old Sri Lankan healing traditions to modern wellness seekers.
-              </p>
-
-              <div className="grid md:grid-cols-3 gap-8 mt-12">
-                {[
-                  { icon: Heart, title: "Holistic Healing", desc: "Mind, body, spirit balance" },
-                  { icon: Leaf, title: "Natural Remedies", desc: "Pure herbal treatments" },
-                  { icon: Sun, title: "Personal Care", desc: "Customized wellness plans" },
-                ].map((item, i) => (
-                  <div key={i} className="text-center">
-                    <item.icon className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
-                    <h3 className="text-lg font-serif text-white mb-2">{item.title}</h3>
-                    <p className="text-sm text-white/70">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Experiences Grid */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="text-emerald-600 text-sm tracking-[0.3em] uppercase mb-4 font-medium">
-              Your Journey
-            </p>
-            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">
-              Immersive Wellness Experiences
-            </h2>
-            <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-emerald-600 to-transparent mx-auto" />
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {experiences.map((exp, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-emerald-50 to-white p-10 rounded-3xl border border-emerald-100 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <h3 className="text-2xl font-serif text-gray-900 mb-6">
-                  {exp.title}
-                </h3>
-                <ul className="space-y-3">
-                  {exp.items.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Leaf className="w-3 h-3 text-emerald-600" />
-                      </div>
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Location Highlight */}
-      <section className="premium-dark-section py-32 bg-gradient-to-br from-gray-900 via-emerald-900 to-gray-900 relative overflow-hidden">
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <h2 className="text-4xl md:text-5xl font-serif text-white">
-                  Yodhakandiya Paradise
-                </h2>
-                <div className="w-20 h-1 bg-emerald-400" />
-                <p className="text-lg text-white/80 leading-relaxed">
-                  Nestled beside the serene Yodha Wewa Lake and surrounded by verdant 
-                  paddy fields, our 15-acre wellness village offers complete tranquility 
-                  away from urban chaos.
-                </p>
-                <ul className="space-y-4">
-                  {[
-                    { icon: Waves, text: "Lakeside serenity" },
-                    { icon: TreePine, text: "Natural forest surroundings" },
-                    { icon: Sun, text: "Clean air and pure environment" },
-                    { icon: Moon, text: "Starlit meditation spaces" },
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3">
-                      <item.icon className="w-5 h-5 text-emerald-400" />
-                      <span className="text-white/90">{item.text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-md p-10 rounded-3xl border border-white/20">
-                <blockquote className="text-xl text-white/90 italic leading-relaxed">
-                  "A sanctuary where ancient wisdom meets modern wellness, 
-                  surrounded by nature's embrace and the healing energy of the land."
-                </blockquote>
-                <div className="mt-6">
-                  <div className="w-16 h-1 bg-emerald-400" />
-                  <p className="text-sm text-white/70 mt-4">Eden Harvest Philosophy</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sustainability */}
-      <section className="py-24 bg-gradient-to-b from-emerald-50 to-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <p className="text-emerald-600 text-sm tracking-[0.3em] uppercase mb-4 font-medium">
-              Our Commitment
-            </p>
-            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">
-              Sustainable Wellness
-            </h2>
-            <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-emerald-600 to-transparent mx-auto" />
-            
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Every aspect of Eden Harvest is designed with sustainability in mind — 
-              from eco-friendly construction and renewable energy to organic farming 
-              practices and water conservation.
-            </p>
-
-            <div className="grid sm:grid-cols-3 gap-8 mt-12">
-              {[
-                { value: "100%", label: "Organic Gardens" },
-                { value: "Zero", label: "Chemical Use" },
-                { value: "15+", label: "Acres Preserved" },
-              ].map((stat, i) => (
-                <div key={i} className="text-center">
-                  <div className="text-5xl font-serif text-emerald-600 mb-2">{stat.value}</div>
-                  <div className="text-sm text-gray-600 uppercase tracking-wide">{stat.label}</div>
+            <div className="divide-y divide-[#14372b]/14 border-y border-[#14372b]/14">
+              {experiences.map(([title, text], index) => (
+                <div data-reveal key={title} className="grid gap-4 py-7 sm:grid-cols-[70px_0.8fr_1.2fr] sm:gap-6 md:py-9">
+                  <span className="text-[0.56rem] font-semibold uppercase tracking-[0.2em] text-[#9a7650]">0{index + 1}</span>
+                  <h3 className="font-serif text-2xl font-normal text-[#14372b] md:text-3xl">{title}</h3>
+                  <p className="text-sm leading-7 text-[#66695f]">{text}</p>
                 </div>
               ))}
             </div>
@@ -357,36 +156,30 @@ const WellnessPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-32 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-4xl md:text-6xl font-serif text-gray-900 leading-tight">
-              Begin Your
-              <span className="block text-emerald-600">Wellness Journey</span>
+      <section className="relative min-h-[62svh] overflow-hidden bg-[#08271e] text-[#fff9ed]">
+        <img
+          src="/welness/image1.PNG"
+          alt="Eden Harvest landscape in Sri Lanka"
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,31,23,0.95),rgba(5,31,23,0.7)_62%,rgba(5,31,23,0.38))]" />
+        <div className="absolute inset-0 premium-grain opacity-[0.09]" />
+
+        <div className="relative z-10 mx-auto flex min-h-[62svh] max-w-[1440px] items-center px-5 py-24 sm:px-8 lg:px-12">
+          <div data-reveal className="max-w-4xl">
+            <p className="premium-kicker premium-kicker-light">Eden Harvest</p>
+            <h2 className="mt-7 font-serif text-[clamp(3.6rem,7vw,7rem)] font-normal leading-[0.85] tracking-[-0.035em] text-[#fff9ed]">
+              Come for wellness.<br /><span className="italic text-[#e5c982]">Stay for the place.</span>
             </h2>
-            <p className="text-xl text-gray-600">
-              Discover the perfect balance of Ayurvedic healing, organic living, 
-              and natural serenity at Eden Harvest.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-              <Button
-                size="lg"
-                onClick={() => navigate("/contact")}
-                className="bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white px-10 py-7 text-lg font-medium rounded-full shadow-xl hover:scale-105 transition-all duration-300"
-              >
-                Reserve Your Stay
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => navigate("/about")}
-                className="border-2 border-gray-300 text-gray-900 hover:bg-gray-900 hover:text-white px-10 py-7 text-lg font-medium rounded-full transition-all duration-300 hover:scale-105"
-              >
-                Learn More
-              </Button>
-            </div>
+            <button
+              onClick={() => go("/contact")}
+              className="group mt-9 inline-flex items-center gap-4 border-b border-[#e1c27c]/70 pb-2 text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#e1c27c]"
+            >
+              Start a conversation
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </button>
           </div>
         </div>
       </section>

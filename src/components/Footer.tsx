@@ -1,5 +1,6 @@
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import BrandMark from "./BrandMark";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -9,108 +10,83 @@ const Footer = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const quickLinks = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Tea", path: "/products" },
-    { name: "Spices", path: "/spices" },
+  const houseLinks = [
+    { name: "The House", path: "/about" },
+    { name: "Ceylon Tea", path: "/products" },
+    { name: "Island Spices", path: "/spices" },
     { name: "Wellness", path: "/wellness" },
-    { name: "Contact", path: "/contact" },
   ];
 
   return (
-    <footer className="relative overflow-hidden bg-[#102f25] text-[#fffaf0]">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d8b66f] to-transparent" />
-      <div className="container mx-auto px-6 py-16">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.25fr_0.8fr_0.9fr_1.2fr]">
+    <footer className="relative overflow-hidden bg-[#08271e] text-[#fff9ed]">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d8bd7a]/70 to-transparent" />
+      <div className="absolute -right-32 top-10 h-80 w-80 rounded-full border border-[#d8bd7a]/10" />
+      <div className="absolute -right-10 top-32 h-52 w-52 rounded-full border border-[#d8bd7a]/10" />
+
+      <div className="mx-auto max-w-[1440px] px-5 py-16 sm:px-8 md:py-20 lg:px-12">
+        <div className="grid gap-14 border-b border-white/10 pb-14 lg:grid-cols-[1.35fr_0.65fr_0.8fr] lg:gap-20">
           <div>
-            <div className="mb-5 flex items-center gap-3">
-              <span className="grid h-12 w-12 place-items-center rounded-full border border-[#d8b66f]/70 bg-[#fffaf0] font-serif text-[#103b2c]">
-                AS
-              </span>
-              <div>
-                <h3 className="font-serif text-2xl leading-none text-[#f7e4b0]">
-                  A. S. Exim Lanka
-                </h3>
-                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#d8b66f]/80">
-                  Ceylon exports since 1977
-                </p>
+            <BrandMark inverted />
+            <h2 className="mt-9 max-w-3xl font-serif text-[clamp(2.4rem,5vw,5.8rem)] font-normal leading-[0.92] tracking-[-0.025em] text-[#fff9ed]">
+              Ceylon, thoughtfully prepared for the world.
+            </h2>
+            <button
+              onClick={() => handleNavigate("/contact")}
+              className="group mt-9 inline-flex items-center gap-3 border-b border-[#d8bd7a]/65 pb-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[#e4c986] transition-colors hover:text-white"
+            >
+              Begin a sourcing conversation
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </button>
+          </div>
+
+          <div>
+            <p className="mb-6 text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-[#d8bd7a]">
+              The house
+            </p>
+            <div className="grid gap-4">
+              {houseLinks.map((item) => (
+                <button
+                  key={item.path}
+                  onClick={() => handleNavigate(item.path)}
+                  className="w-fit font-serif text-xl text-white/78 transition-colors hover:text-[#e4c986]"
+                >
+                  {item.name}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <p className="mb-6 text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-[#d8bd7a]">
+              Sri Lanka
+            </p>
+            <div className="grid gap-5 text-sm leading-6 text-white/68">
+              <a href="tel:+94715524956" className="group flex items-start gap-3 hover:text-white">
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-[#d8bd7a]" />
+                <span>+94 71 552 4956</span>
+              </a>
+              <a href="mailto:info@aseximlanka.com" className="group flex items-start gap-3 hover:text-white">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[#d8bd7a]" />
+                <span>info@aseximlanka.com</span>
+              </a>
+              <div className="flex items-start gap-3">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#d8bd7a]" />
+                <span>
+                  665/22/1 Gunawardana Mawatha,
+                  <br />Sri Jayawardenepura Kotte 10120,
+                  <br />Sri Lanka
+                </span>
               </div>
             </div>
-            <p className="max-w-sm text-sm leading-7 text-white/70">
-              Premium Ceylon tea, authentic island spices, and wellness experiences
-              shaped by heritage, traceability, and export discipline.
-            </p>
-            <div className="mt-6 flex gap-3">
-              {[Facebook, Instagram, Linkedin].map((Icon, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="grid h-10 w-10 place-items-center rounded-md border border-white/10 bg-white/5 text-white/75 transition hover:border-[#d8b66f]/60 hover:bg-[#d8b66f] hover:text-[#103b2c]"
-                  aria-label="Social link"
-                >
-                  <Icon className="h-5 w-5" />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h4 className="mb-5 font-serif text-lg text-[#f7e4b0]">Platform</h4>
-            <ul className="grid gap-3 text-sm">
-              {quickLinks.map((item) => (
-                <li key={item.path}>
-                  <button
-                    onClick={() => handleNavigate(item.path)}
-                    className="text-white/70 transition hover:text-[#d8b66f]"
-                  >
-                    {item.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="mb-5 font-serif text-lg text-[#f7e4b0]">Divisions</h4>
-            <ul className="grid gap-3 text-sm text-white/70">
-              <li>Premium Ceylon Tea</li>
-              <li>Ceylon Spices</li>
-              <li>Private Label Exports</li>
-              <li>Eden Harvest Wellness</li>
-              <li>Bulk & Retail Packing</li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="mb-5 font-serif text-lg text-[#f7e4b0]">Contact</h4>
-            <ul className="grid gap-4 text-sm">
-              <li className="flex gap-3 text-white/70">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-[#d8b66f]" />
-                <span>Dinesh Saluwadana: +94715524956</span>
-              </li>
-              <li className="flex gap-3 text-white/70">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[#d8b66f]" />
-                <span>info@aseximlanka.com</span>
-              </li>
-              <li className="flex gap-3 text-white/70">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#d8b66f]" />
-                <span>
-                  1, 665/22, 1 Gunawardana Mawatha, Sri Jayawardenepura Kotte
-                  10120, Sri Lanka
-                </span>
-              </li>
-            </ul>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-white/60 md:flex-row md:items-center md:justify-between">
-          <p>© 2026 A. S. Exim Lanka (Pvt) Ltd. All rights reserved.</p>
-          <div className="flex flex-wrap gap-5">
-            <a href="#" className="transition hover:text-[#d8b66f]">Privacy Policy</a>
-            <a href="#" className="transition hover:text-[#d8b66f]">Terms</a>
-            <a href="#" className="transition hover:text-[#d8b66f]">Certifications</a>
-          </div>
+        <div className="flex flex-col gap-5 pt-7 text-[0.64rem] font-medium uppercase tracking-[0.16em] text-white/42 md:flex-row md:items-center md:justify-between">
+          <p>© 2026 A. S. Exim Lanka (Pvt) Ltd.</p>
+          <p className="text-[#d8bd7a]/70">Tea · Spices · Private label · Wellness</p>
+          <button onClick={() => handleNavigate("/")} className="w-fit transition-colors hover:text-white">
+            Back to the house
+          </button>
         </div>
       </div>
     </footer>

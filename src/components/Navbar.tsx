@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
+import BrandMark from "./BrandMark";
 
 const navItems = [
-  { name: "Home", path: "/" },
-  { name: "About", path: "/about" },
-  { name: "Tea", path: "/products" },
+  { name: "The House", path: "/about" },
+  { name: "Ceylon Tea", path: "/products" },
   { name: "Spices", path: "/spices" },
   { name: "Wellness", path: "/wellness" },
-  { name: "Contact", path: "/contact" },
 ];
 
 const Navbar = () => {
@@ -18,98 +17,121 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 24);
+    const handleScroll = () => setIsScrolled(window.scrollY > 28);
     handleScroll();
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
   const handleNavigate = (path: string) => {
     navigate(path);
-    setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const lightHeader = isScrolled || isMobileMenuOpen;
+
   return (
-    <header className="fixed inset-x-0 top-4 z-50 px-4">
-      <nav
-        className={`mx-auto flex max-w-7xl items-center justify-between border border-[#d8b66f]/55 bg-[#fffaf0]/95 px-3 py-3 shadow-[0_22px_60px_rgba(20,34,26,0.22)] backdrop-blur-2xl transition-all duration-300 md:px-4 ${
-          isScrolled ? "translate-y-0" : ""
-        }`}
-        style={{ borderRadius: 14 }}
-      >
+    <header
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-500 ${
+        lightHeader
+          ? "border-[#143b2e]/10 bg-[#fff9ed]/95 shadow-[0_12px_40px_rgba(9,38,29,0.08)] backdrop-blur-xl"
+          : "border-white/15 bg-[#092d22]/28 backdrop-blur-md"
+      }`}
+    >
+      <div className="mx-auto flex h-[76px] max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-12">
         <button
           onClick={() => handleNavigate("/")}
-          className="group flex min-w-0 max-w-[calc(100%-56px)] items-center gap-3 text-left"
+          className="min-w-0 text-left"
           aria-label="A. S. Exim Lanka home"
         >
-          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[#d8b66f]/70 bg-[#103b2c] font-serif text-base text-[#fffaf0] shadow-[0_12px_28px_rgba(16,59,44,0.25)]">
-            AS
-          </span>
-          <span className="min-w-0">
-            <span className="block truncate font-serif text-base leading-none text-[#103b2c] sm:text-lg md:text-xl">
-              A. S. Exim Lanka
-            </span>
-            <span className="mt-1 block truncate text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-[#8a4b2f] sm:text-[0.68rem] sm:tracking-[0.22em]">
-              Ceylon exports since 1977
-            </span>
-          </span>
+          <BrandMark inverted={!lightHeader} />
         </button>
 
-        <div className="hidden items-center gap-1 md:flex">
-          {navItems.map((item) => {
-            const isActive = location.pathname === item.path;
-            return (
-              <button
-                key={item.path}
-                onClick={() => handleNavigate(item.path)}
-                className={`rounded-md px-3 py-2 text-[0.78rem] font-extrabold uppercase tracking-[0.14em] transition-colors ${
-                  isActive
-                    ? "bg-[#103b2c] text-[#fffaf0]"
-                    : "text-[#1f3429] hover:bg-[#f0e4c9] hover:text-[#8a4b2f]"
-                }`}
-              >
-                {item.name}
-              </button>
-            );
-          })}
+        <div className="hidden items-center gap-8 lg:flex">
+          <nav className="flex items-center gap-7" aria-label="Primary navigation">
+            {navItems.map((item) => {
+              const isActive = location.pathname === item.path;
+              return (
+                <button
+                  key={item.path}
+                  onClick={() => handleNavigate(item.path)}
+                  className={`group relative py-2 text-[0.66rem] font-semibold uppercase tracking-[0.2em] transition-colors ${
+                    lightHeader
+                      ? isActive
+                        ? "text-[#8d5c3f]"
+                        : "text-[#17382d] hover:text-[#8d5c3f]"
+                      : isActive
+                        ? "text-[#e3c787]"
+                        : "text-white/82 hover:text-[#e3c787]"
+                  }`}
+                >
+                  {item.name}
+                  <span
+                    className={`absolute inset-x-0 -bottom-0.5 h-px origin-left transition-transform duration-300 ${
+                      isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                    } ${lightHeader ? "bg-[#9f7747]" : "bg-[#e3c787]"}`}
+                  />
+                </button>
+              );
+            })}
+          </nav>
+
+          <button
+            onClick={() => handleNavigate("/contact")}
+            className={`inline-flex items-center gap-2 border px-5 py-3 text-[0.64rem] font-semibold uppercase tracking-[0.19em] transition-all duration-300 ${
+              lightHeader
+                ? "border-[#17382d]/25 text-[#17382d] hover:border-[#17382d] hover:bg-[#17382d] hover:text-[#fff9ed]"
+                : "border-white/40 text-white hover:border-[#e3c787] hover:bg-[#e3c787] hover:text-[#0b2d22]"
+            }`}
+          >
+            Source with us
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </button>
         </div>
 
         <button
-          onClick={() => handleNavigate("/contact")}
-          className="hidden rounded-md border border-[#d8b66f]/60 bg-[#8a4b2f] px-4 py-3 text-xs font-bold uppercase tracking-[0.16em] text-[#fffaf0] shadow-[0_14px_30px_rgba(138,75,47,0.2)] transition hover:bg-[#103b2c] lg:inline-flex"
-        >
-          Inquire
-        </button>
-
-        <button
-          className="grid h-11 w-11 place-items-center rounded-md bg-[#103b2c] text-[#fffaf0] md:hidden"
+          className={`grid h-11 w-11 place-items-center border transition-colors lg:hidden ${
+            lightHeader
+              ? "border-[#17382d]/18 text-[#17382d]"
+              : "border-white/30 text-white"
+          }`}
           onClick={() => setIsMobileMenuOpen((open) => !open)}
+          aria-expanded={isMobileMenuOpen}
           aria-label="Toggle navigation"
         >
           {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
-      </nav>
+      </div>
 
-      {isMobileMenuOpen && (
-        <div className="mx-auto mt-2 max-w-7xl border border-[#d8b66f]/35 bg-[#fffaf0]/95 p-3 shadow-[0_22px_60px_rgba(20,34,26,0.16)] backdrop-blur-2xl md:hidden" style={{ borderRadius: 10 }}>
-          <div className="grid gap-1">
-            {navItems.map((item) => (
-              <button
-                key={item.path}
-                onClick={() => handleNavigate(item.path)}
-                className={`rounded-md px-4 py-3 text-left text-sm font-bold uppercase tracking-[0.14em] ${
-                  location.pathname === item.path
-                    ? "bg-[#103b2c] text-[#fffaf0]"
-                    : "text-[#344137] hover:bg-[#f0e4c9]"
-                }`}
-              >
-                {item.name}
-              </button>
-            ))}
+      <div
+        className={`overflow-hidden bg-[#fff9ed] transition-all duration-500 lg:hidden ${
+          isMobileMenuOpen ? "max-h-[520px] border-t border-[#17382d]/10" : "max-h-0"
+        }`}
+      >
+        <nav className="mx-auto max-w-[1440px] px-5 py-6 sm:px-8" aria-label="Mobile navigation">
+          <div className="grid divide-y divide-[#17382d]/10">
+            {[{ name: "Home", path: "/" }, ...navItems, { name: "Contact", path: "/contact" }].map(
+              (item, index) => (
+                <button
+                  key={item.path}
+                  onClick={() => handleNavigate(item.path)}
+                  className="group flex items-center justify-between py-4 text-left"
+                >
+                  <span className="font-serif text-2xl text-[#12362a]">{item.name}</span>
+                  <span className="flex items-center gap-3 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[#8d5c3f]">
+                    0{index + 1}
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </span>
+                </button>
+              ),
+            )}
           </div>
-        </div>
-      )}
+        </nav>
+      </div>
     </header>
   );
 };

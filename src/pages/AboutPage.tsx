@@ -1,364 +1,221 @@
-import { Award, Users, Globe, TrendingUp, Target, Heart, Sparkles, Building } from "lucide-react";
-// FloatingLeaves component removed — decorative leaves have been removed per request
+import { ArrowRight, Compass, Handshake, Leaf, PackageCheck } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
+const milestones = [
+  {
+    year: "1977",
+    title: "The roots",
+    text: "The family’s tea-industry legacy begins with Mr. S. A. D. Piyadasa and decades of practical knowledge in the Sri Lankan trade.",
+  },
+  {
+    year: "1998",
+    title: "The next generation",
+    text: "Mr. Chamil Samantha enters the tea business, learning the trade through hands-on experience and family mentorship.",
+  },
+  {
+    year: "2024",
+    title: "A. S. Exim Lanka",
+    text: "A new export chapter takes shape around Ceylon tea, island spices, private-label opportunities, and global partnerships.",
+  },
+];
+
+const principles = [
+  {
+    icon: Compass,
+    title: "Origin before ornament",
+    text: "The story begins with where a product comes from, how it is selected, and why that origin matters.",
+  },
+  {
+    icon: Leaf,
+    title: "Quality through attention",
+    text: "Tea is judged in the details—leaf, liquor, aroma, consistency, manufacture, and fit for the final brief.",
+  },
+  {
+    icon: Handshake,
+    title: "Partnership over transaction",
+    text: "We aim to understand the buyer, market, and product idea before recommending the most appropriate route.",
+  },
+  {
+    icon: PackageCheck,
+    title: "Presentation with purpose",
+    text: "Packing should protect quality, support the brand story, and make commercial sense in the target market.",
+  },
+];
 
 const AboutPage = () => {
-  const values = [
-    {
-      icon: Award,
-      title: "Quality",
-      description: "Unwavering commitment to excellence in every product we deliver",
-      color: "from-amber-500 to-amber-600",
-    },
-    {
-      icon: Heart,
-      title: "Heritage",
-      description: "Honoring the rich legacy of Sri Lanka's finest tea culture",
-      color: "from-emerald-500 to-emerald-600",
-    },
-    {
-      icon: Target,
-      title: "Integrity",
-      description: "Conducting business with complete transparency and honesty",
-      color: "from-blue-500 to-blue-600",
-    },
-    {
-      icon: Sparkles,
-      title: "Innovation",
-      description: "Leveraging cutting-edge technology for evolving global demands",
-      color: "from-purple-500 to-purple-600",
-    },
-  ];
+  const navigate = useNavigate();
 
-  const milestones = [
-    { year: "1977", title: "Foundation", description: "Legacy begins with Mr. S. A. D. Piyadasa" },
-    { year: "1998", title: "Next Generation", description: "Mr. Chamil Samantha joins the business" },
-    { year: "2000s", title: "Global Expansion", description: "Established presence in Middle Eastern markets" },
-    { year: "2024", title: "A. S. Exim Lanka", description: "New chapter with export license and modern facilities" },
-  ];
-
-  const expertise = [
-    { icon: Users, stat: "150+", label: "Expert Professionals" },
-    { icon: Globe, stat: "40+", label: "Years Experience" },
-    { icon: Building, stat: "ISO", label: "Certified Quality" },
-    { icon: Award, stat: "Global", label: "Market Leader" },
-  ];
+  const go = (path: string) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative py-32 md:py-40 overflow-hidden bg-gradient-to-br from-emerald-950 via-emerald-900 to-amber-950">
-        <div className="absolute inset-0 opacity-30">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: "url('/About/image.png')",
-            }}
-          />
-        </div>
+    <div className="min-h-screen bg-[#fffaf0] text-[#14372b]">
+      <section className="relative min-h-[78svh] overflow-hidden bg-[#08271e] text-[#fff9ed]">
+        <img
+          src="/About/image.png"
+          alt="A. S. Exim Lanka heritage"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          fetchPriority="high"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,31,23,0.96)_0%,rgba(5,31,23,0.82)_48%,rgba(5,31,23,0.38)_78%,rgba(5,31,23,0.56)_100%)]" />
+        <div className="absolute inset-0 premium-grain opacity-[0.1]" />
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="inline-block">
-              <p className="text-amber-400 text-sm tracking-[0.3em] uppercase font-medium">
-                Our Story
-              </p>
-            </div>
-            <h1 className="text-5xl md:text-7xl font-serif text-white leading-tight">
-              A Proud Legacy of
-              <span className="block text-amber-400">Excellence & Trust</span>
+        <div className="relative z-10 mx-auto flex min-h-[78svh] max-w-[1440px] items-end px-5 pb-16 pt-32 sm:px-8 md:pb-20 lg:px-12 lg:pb-24">
+          <div className="max-w-5xl">
+            <p className="premium-kicker premium-kicker-light">The house</p>
+            <h1 className="mt-7 max-w-5xl font-serif text-[clamp(4.2rem,8.5vw,8.5rem)] font-normal leading-[0.83] tracking-[-0.04em] text-[#fff9ed]">
+              A legacy of tea,
+              <span className="mt-2 block italic text-[#e5c982]">reframed for today.</span>
             </h1>
-            <p className="text-xl text-white/80 font-light leading-relaxed">
-              Since 1977, we've been crafting the finest Ceylon Tea, building
-              bridges between tradition and innovation, and earning the trust of
-              global markets.
+            <p className="mt-8 max-w-2xl text-base font-light leading-8 text-white/70 md:text-lg">
+              A. S. Exim Lanka brings generational knowledge of the Sri Lankan tea trade into a modern origin house for tea, spices, private label, and wellness.
             </p>
-          </div>
-        </div>
-
-        {/* Decorative Elements */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
-      </section>
-
-      {/* Story Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-start max-w-7xl mx-auto">
-            {/* Image Grid */}
-            <div className="relative z-10">
-              <div className="relative z-10 grid grid-cols-2 gap-4">
-                <div className="space-y-4">
-                  <div className="aspect-[4/5] overflow-hidden border border-[#103b2c]/12 bg-[#fffdf7] p-3 shadow-2xl">
-                    <img
-                      src="/About/image.png"
-                      alt="A S Exim Lanka Heritage"
-                      className="h-full w-full object-cover hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
-                  <div className="aspect-square overflow-hidden border border-[#103b2c]/12 bg-[#fffdf7] p-3 shadow-2xl">
-                    <img
-                      src="/About/image2.jpeg"
-                      alt="Ceylon Tea Excellence"
-                      className="h-full w-full object-cover hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-4 pt-8">
-                  <div className="aspect-[4/5] overflow-hidden border border-[#103b2c]/12 bg-[#fffdf7] p-3 shadow-2xl">
-                    <img
-                      src="/About/image3.jpeg"
-                      alt="Our Company Story"
-                      className="h-full w-full object-cover hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-amber-100 rounded-3xl -z-10" />
-              <div className="absolute -top-8 -left-8 w-64 h-64 bg-emerald-100 rounded-3xl -z-10" />
-            </div>
-
-            {/* Content */}
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">
-                  Built on Generations of Expertise
-                </h2>
-                <div className="w-24 h-1.5 bg-gradient-to-r from-amber-600 to-transparent" />
-              </div>
-
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Established as a new chapter of a proud legacy, <strong className="text-gray-900">A. S. Exim
-                Lanka (Pvt) Ltd</strong> is a premier exporter of <strong className="text-gray-900">Ceylon Tea</strong>,
-                delivering unmatched quality to discerning markets around the world.
-              </p>
-
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Our roots trace back to <strong className="text-gray-900">1977</strong>, when the foundation
-                was laid through decades of experience and knowledge passed down from{" "}
-                <strong className="text-gray-900">Mr. S. A. D. Piyadasa</strong>, a prominent figure in the
-                Sri Lankan tea industry.
-              </p>
-
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Our Managing Director, <strong className="text-gray-900">Mr. Chamil Samantha</strong>, began
-                his professional journey in <strong className="text-gray-900">1998</strong>, learning the
-                intricacies of the tea trade under the guidance of his father. Today, we stand
-                as one of the leading suppliers of premium Ceylon Tea to{" "}
-                <strong className="text-gray-900">blue-chip clients</strong> and{" "}
-                <strong className="text-gray-900">multinational companies</strong> worldwide.
-              </p>
-
-              {/* Inserted: The Story of Ceylon Tea narrative from user */}
-              <div className="mt-6">
-                <h3 className="text-2xl font-serif text-gray-900 mb-3">The Story of Ceylon Tea</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  The story of Ceylon Tea begins in the misty mountains of Sri Lanka — once called Ceylon. In the mid-19th
-                  century, British planters searching for fortune discovered that the island’s highlands were more than scenic —
-                  they were perfectly suited for tea.
-                </p>
-
-                <p className="text-gray-700 leading-relaxed mt-4">
-                  After a devastating coffee blight in the 1860s, a Scottish planter named James Taylor planted the first
-                  commercial tea estate in Loolecondera, Kandy, in 1867. His small experiment soon transformed Sri Lanka into
-                  one of the world’s greatest tea producers. What began as a few acres of tender green bushes became a thriving
-                  industry that shaped the island’s culture, economy, and global reputation.
-                </p>
-
-                <h4 className="text-xl font-serif text-gray-900 mt-6">A Landscape Made for Tea</h4>
-                <p className="text-gray-700 leading-relaxed mt-2">
-                  Sri Lanka’s unique geography and climate give Ceylon Tea its remarkable diversity. From the crisp, citrusy
-                  teas of Nuwara Eliya to the full-bodied richness of Uva, the bright briskness of Dimbula, and the deep aroma
-                  of Kandy — every region tells its own story through the cup. Cool mountain air, rich red soil, and monsoon rains
-                  nurture the leaves, while centuries of craftsmanship ensure that every plucked bud carries the soul of the island’s hills.
-                </p>
-
-                <hr className="my-6" />
-
-                <h4 className="text-xl font-serif text-gray-900">The Art of Perfection</h4>
-                <p className="text-gray-700 leading-relaxed mt-2">
-                  Each leaf is handpicked — the delicate “two leaves and a bud.” The tea is then withered, rolled, fermented, and fired
-                  with precision to preserve its aroma and character. This devotion to craft makes Ceylon Tea one of the few remaining
-                  hand-harvested teas in the modern world.
-                </p>
-
-                <ul className="list-disc list-inside text-gray-700 mt-4 space-y-1">
-                  <li>Bright golden liquor</li>
-                  <li>Fresh, lively aroma</li>
-                  <li>Brisk, clean taste that lingers with clarity</li>
-                </ul>
-
-                <p className="text-gray-700 mt-4">
-                  These qualities have made Ceylon Tea a global standard of excellence. Today, Sri Lanka remains one of the world’s top
-                  tea exporters. The Lion Logo of Ceylon Tea guarantees 100% pure Ceylon origin — a mark of integrity, authenticity, and pride.
-                </p>
-
-                <p className="text-gray-700 mt-4">
-                  Beyond commerce, tea is a way of life — a rhythm of hills, harvests, and human hands. From sunrise plucking to the last
-                  evening cup, Ceylon Tea continues to symbolize warmth, hospitality, and heritage — a timeless taste born of Sri Lankan soil and soul.
-                </p>
-
-                <div className="mt-6 p-6 bg-amber-50 rounded-lg">
-                  <p className="text-gray-900 font-serif text-lg">Since 1977, we've been crafting the finest Ceylon Tea, building bridges between tradition and innovation, and earning the trust of global markets.</p>
-                </div>
-              </div>
-
-              {/* Expertise Stats */}
-              <div className="grid grid-cols-2 gap-6 pt-8">
-                {expertise.map((item, index) => (
-                  <div
-                    key={index}
-                    className="bg-gradient-to-br from-emerald-50 to-amber-50 p-6 rounded-xl"
-                  >
-                    <item.icon className="w-8 h-8 text-amber-600 mb-3" />
-                    <div className="text-3xl font-serif text-gray-900 mb-1">
-                      {item.stat}
-                    </div>
-                    <div className="text-sm text-gray-600">{item.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Timeline */}
-      <section id="timeline" className="premium-timeline relative overflow-hidden bg-[#103b2c] py-24 text-[#fffaf0] md:py-32">
-        <div className="absolute inset-0 opacity-[0.08]">
-          <div
-            className="h-full w-full"
-            style={{
-              backgroundImage:
-                "linear-gradient(rgba(216,182,111,.35) 1px, transparent 1px), linear-gradient(90deg, rgba(216,182,111,.35) 1px, transparent 1px)",
-              backgroundSize: "64px 64px",
-            }}
-          />
-        </div>
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d8b66f] to-transparent" />
-        <div className="container relative z-10 mx-auto px-6">
-          <div className="mx-auto mb-16 max-w-4xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.26em] text-[#d8b66f]">
-              Our Journey
-            </p>
-            <h2 className="font-serif text-4xl text-[#fffaf0] md:text-6xl">
-              Milestones of Excellence
+      <section className="bg-[#fffaf0] py-24 md:py-32 lg:py-36">
+        <div className="mx-auto grid max-w-[1440px] gap-14 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:gap-20 lg:px-12">
+          <div data-reveal className="grid grid-cols-12 gap-4">
+            <div className="col-span-8 overflow-hidden bg-[#14372b]">
+              <img
+                src="/About/image2.jpeg"
+                alt="Ceylon tea heritage"
+                loading="lazy"
+                decoding="async"
+                className="aspect-[4/5] h-full w-full object-cover"
+              />
+            </div>
+            <div className="col-span-4 mt-16 overflow-hidden bg-[#14372b]">
+              <img
+                src="/About/image3.jpeg"
+                alt="Sri Lankan tea craftsmanship"
+                loading="lazy"
+                decoding="async"
+                className="aspect-[3/5] h-full w-full object-cover"
+              />
+            </div>
+          </div>
+
+          <div data-reveal className="lg:pt-10">
+            <p className="premium-kicker">Generational knowledge</p>
+            <h2 className="mt-6 font-serif text-[clamp(3.1rem,5vw,5.8rem)] font-normal leading-[0.9] tracking-[-0.03em] text-[#14372b]">
+              Built through the trade,
+              <span className="mt-1 block italic text-[#8d5c3f]">not around a trend.</span>
             </h2>
-            <div className="mx-auto mt-7 h-px w-40 bg-gradient-to-r from-transparent via-[#d8b66f] to-transparent" />
-          </div>
+            <div className="mt-8 space-y-6 text-base leading-8 text-[#62665d]">
+              <p>
+                The family’s connection to Sri Lanka’s tea industry traces back to 1977 through Mr. S. A. D. Piyadasa. That knowledge was carried forward by the next generation and now informs the way A. S. Exim Lanka approaches sourcing, selection, blending, packing, and buyer relationships.
+              </p>
+              <p>
+                The company is a newer chapter of that longer story. We are building an export house that respects what made Ceylon tea globally distinctive while presenting Sri Lankan origin products with greater clarity, restraint, and commercial relevance.
+              </p>
+            </div>
 
-          <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-2">
-            {milestones.map((milestone, index) => (
-              <article
-                key={index}
-                className="group relative overflow-hidden border border-[#d8b66f]/24 bg-[#fffaf0] p-7 text-left shadow-[0_26px_70px_rgba(0,0,0,0.22)] transition duration-300 hover:-translate-y-1 hover:border-[#d8b66f]/70"
-                style={{ borderRadius: 8 }}
-              >
-                <div className="absolute -right-4 -top-7 font-serif text-8xl leading-none text-[#103b2c]/[0.06] md:text-9xl">
-                  {milestone.year}
-                </div>
-                <div className="relative z-10">
-                  <div className="mb-8 flex items-center justify-between border-b border-[#103b2c]/10 pb-5">
-                    <span className="font-serif text-4xl text-[#8a4b2f]">
-                      {milestone.year}
-                    </span>
-                    <span className="h-px w-16 bg-[#d8b66f]" />
-                  </div>
-                  <h3 className="font-serif text-3xl text-[#103b2c]">
-                    {milestone.title}
-                  </h3>
-                  <p className="mt-4 leading-7 text-[#6b675b]">
-                    {milestone.description}
-                  </p>
-                </div>
-              </article>
-            ))}
+            <button
+              onClick={() => go("/products")}
+              className="group mt-9 inline-flex items-center gap-4 border-b border-[#8d5c3f]/55 pb-2 text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#8d5c3f]"
+            >
+              Enter the tea house
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Vision & Mission */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-            <div className="group relative bg-gradient-to-br from-emerald-50 via-emerald-50 to-white p-12 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-emerald-100">
-              <div className="absolute top-6 right-6 w-20 h-20 bg-emerald-600/10 rounded-full" />
-              <Target className="w-16 h-16 text-emerald-600 mb-6" />
-              <h3 className="text-3xl font-serif text-gray-900 mb-6">Our Vision</h3>
-              <p className="text-gray-700 leading-relaxed text-lg">
-                To be a globally respected name in the tea export industry by delivering
-                consistently high-quality, ethically sourced Ceylon Tea while nurturing a
-                sustainable and innovative business environment.
-              </p>
+      <section className="bg-[#efe2cc] py-24 md:py-32">
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+          <div className="grid gap-10 lg:grid-cols-[0.62fr_1.38fr] lg:gap-20">
+            <div data-reveal>
+              <p className="premium-kicker">Three chapters</p>
+              <h2 className="mt-6 max-w-md font-serif text-[clamp(3rem,4.8vw,5.2rem)] font-normal leading-[0.92] tracking-[-0.03em] text-[#14372b]">
+                Heritage is useful only when it keeps moving.
+              </h2>
             </div>
 
-            <div className="group relative bg-gradient-to-br from-amber-50 via-amber-50 to-white p-12 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-amber-100">
-              <div className="absolute top-6 right-6 w-20 h-20 bg-amber-600/10 rounded-full" />
-              <Sparkles className="w-16 h-16 text-amber-600 mb-6" />
-              <h3 className="text-3xl font-serif text-gray-900 mb-6">Our Mission</h3>
-              <p className="text-gray-700 leading-relaxed text-lg">
-                To provide our clients with premium-grade, custom-blended Ceylon Tea that
-                reflects the rich heritage and superior quality of Sri Lankan produce, while
-                upholding ethical values and sustainability in every facet of our business.
-              </p>
+            <div className="divide-y divide-[#14372b]/14 border-y border-[#14372b]/14">
+              {milestones.map((milestone) => (
+                <div data-reveal key={milestone.year} className="grid gap-5 py-8 sm:grid-cols-[120px_0.75fr_1.25fr] sm:gap-7 md:py-10">
+                  <span className="font-serif text-4xl font-normal text-[#8d5c3f]">{milestone.year}</span>
+                  <h3 className="font-serif text-2xl font-normal text-[#14372b] md:text-3xl">{milestone.title}</h3>
+                  <p className="text-sm leading-7 text-[#66695f]">{milestone.text}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Core Values */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-20">
-            <p className="text-amber-600 text-sm tracking-[0.3em] uppercase mb-4 font-medium">
-              What Drives Us
-            </p>
-            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">
-              Our Core Values
+      <section className="bg-[#0a2e23] py-24 text-[#fff9ed] md:py-32 lg:py-36">
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+          <div data-reveal className="mb-14 max-w-4xl">
+            <p className="premium-kicker premium-kicker-light">How we think</p>
+            <h2 className="mt-6 font-serif text-[clamp(3.2rem,5vw,5.8rem)] font-normal leading-[0.9] tracking-[-0.03em] text-[#fff9ed]">
+              The principles behind the house.
             </h2>
-            <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-amber-600 to-transparent mx-auto" />
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            {values.map((value, index) => (
-              <div
-                key={index}
-                className="group text-center hover:-translate-y-4 transition-all duration-500"
-              >
-                <div className={`w-28 h-28 mx-auto mb-6 bg-gradient-to-br ${value.color} rounded-3xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl`}>
-                  <value.icon className="w-14 h-14 text-white" />
-                </div>
-                <h4 className="text-2xl font-serif text-gray-900 mb-4">
-                  {value.title}
-                </h4>
-                <p className="text-gray-600 leading-relaxed">{value.description}</p>
+          <div className="grid gap-px bg-white/12 sm:grid-cols-2 lg:grid-cols-4">
+            {principles.map((principle) => (
+              <div data-reveal key={principle.title} className="bg-[#0a2e23] p-7 md:p-8">
+                <principle.icon className="h-6 w-6 text-[#e1c27c]" />
+                <h3 className="mt-7 font-serif text-3xl font-normal leading-tight text-[#fff9ed]">{principle.title}</h3>
+                <p className="mt-5 text-sm leading-7 text-white/58">{principle.text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Leadership Quote */}
-      <section className="premium-dark-section py-32 bg-gradient-to-br from-emerald-950 via-emerald-900 to-emerald-950 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E")`
-          }} />
-        </div>
-
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
-            <div className="text-9xl text-amber-400/20 font-serif mb-8">"</div>
-            <blockquote className="text-2xl md:text-4xl font-light italic leading-relaxed text-white mb-12">
-              Our journey is built on the vision of two generations — driven by
-              tradition, shaped by experience, and powered by innovation. As we grow,
-              we remain committed to the values that have defined us from the
-              beginning: <strong className="text-amber-400 font-normal">excellence</strong>,{" "}
-              <strong className="text-amber-400 font-normal">trust</strong>, and{" "}
-              <strong className="text-amber-400 font-normal">a passion for tea.</strong>
-            </blockquote>
-            <div className="inline-block border-t-2 border-amber-400/30 pt-8">
-              <p className="font-serif text-3xl text-amber-400 mb-2">Chamil Samantha</p>
-              <p className="text-white/70 text-lg">Managing Director</p>
+      <section className="bg-[#fffaf0] py-24 md:py-32">
+        <div className="mx-auto grid max-w-[1440px] gap-12 px-5 sm:px-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end lg:gap-20 lg:px-12">
+          <div data-reveal>
+            <p className="premium-kicker">Ceylon as context</p>
+            <h2 className="mt-6 max-w-xl font-serif text-[clamp(3.2rem,5vw,5.7rem)] font-normal leading-[0.9] tracking-[-0.03em] text-[#14372b]">
+              Our story makes sense only because of the island behind it.
+            </h2>
+          </div>
+          <div data-reveal>
+            <p className="max-w-2xl text-base leading-8 text-[#62665d]">
+              Sri Lanka’s tea identity is shaped by elevation, monsoon patterns, geography, manufacture, and generations of human skill. The seven recognised tea-growing regions create an unusually broad range of character within one origin.
+            </p>
+            <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-[#14372b]/14 pt-7 sm:grid-cols-3">
+              {["Nuwara Eliya", "Uda Pussellawa", "Uva", "Dimbula", "Kandy", "Sabaragamuwa", "Ruhuna"].map((region, index) => (
+                <div key={region}>
+                  <span className="text-[0.52rem] font-semibold uppercase tracking-[0.18em] text-[#9a7650]">0{index + 1}</span>
+                  <p className="mt-1 font-serif text-xl text-[#14372b]">{region}</p>
+                </div>
+              ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative min-h-[62svh] overflow-hidden bg-[#08271e] text-[#fff9ed]">
+        <img
+          src="/About/image.png"
+          alt="Sri Lankan tea landscape"
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,31,23,0.95),rgba(5,31,23,0.72)_60%,rgba(5,31,23,0.42))]" />
+        <div className="absolute inset-0 premium-grain opacity-[0.1]" />
+        <div className="relative z-10 mx-auto flex min-h-[62svh] max-w-[1440px] items-center px-5 py-24 sm:px-8 lg:px-12">
+          <div data-reveal className="max-w-4xl">
+            <p className="premium-kicker premium-kicker-light">A long view</p>
+            <h2 className="mt-7 font-serif text-[clamp(3.6rem,7vw,7rem)] font-normal leading-[0.85] tracking-[-0.035em] text-[#fff9ed]">
+              Respect the origin.<br /><span className="italic text-[#e5c982]">Raise the standard.</span>
+            </h2>
+            <button
+              onClick={() => go("/contact")}
+              className="group mt-9 inline-flex items-center gap-4 bg-[#e1c27c] px-7 py-4 text-[0.66rem] font-bold uppercase tracking-[0.2em] text-[#0a3125] transition-colors hover:bg-[#f0d99d]"
+            >
+              Work with the house
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </button>
           </div>
         </div>
       </section>

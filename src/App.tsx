@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollReveal from "./components/ScrollReveal";
 import Home from "./pages/Home";
 import AboutPage from "./pages/AboutPage";
 import ProductsPage from "./pages/ProductsPage";
@@ -21,7 +22,8 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <div className="min-h-screen flex flex-col bg-background">
+        <ScrollReveal />
+        <div className="flex min-h-screen flex-col bg-background">
           <Navbar />
           <main className="flex-1">
             <Routes>
@@ -31,7 +33,6 @@ const App = () => (
               <Route path="/spices" element={<SpicesPage />} />
               <Route path="/wellness" element={<WellnessPage />} />
               <Route path="/contact" element={<ContactPage />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
