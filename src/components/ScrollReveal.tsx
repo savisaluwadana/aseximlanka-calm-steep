@@ -11,7 +11,16 @@ const ScrollReveal = () => {
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const frame = window.requestAnimationFrame(() => {
-      const revealElements = gsap.utils.toArray<HTMLElement>("[data-reveal]");
+      const explicitRevealElements = gsap.utils.toArray<HTMLElement>("[data-reveal]");
+      const structuralRevealElements =
+        location.pathname === "/"
+          ? []
+          : gsap.utils.toArray<HTMLElement>(
+              "main section > .container, main section > div[class*='max-w'], main section > div[class*='mx-auto']",
+            );
+      const revealElements = Array.from(
+        new Set([...explicitRevealElements, ...structuralRevealElements]),
+      );
       const heroElements = gsap.utils.toArray<HTMLElement>("[data-hero]");
       const heroImages = gsap.utils.toArray<HTMLElement>("[data-hero-image]");
       const parallaxElements = gsap.utils.toArray<HTMLElement>("[data-parallax]");
@@ -55,12 +64,13 @@ const ScrollReveal = () => {
         }
 
         revealElements.forEach((element, index) => {
+          const isStructural = !element.hasAttribute("data-reveal");
           const variant = element.dataset.reveal || "up";
           const delay = Number(element.dataset.revealDelay || 0) + (index % 3) * 0.025;
 
           const from: gsap.TweenVars = {
             opacity: 0,
-            y: 34,
+            y: isStructural ? 22 : 34,
           };
 
           if (variant === "left") {
@@ -83,7 +93,7 @@ const ScrollReveal = () => {
             y: 0,
             scale: 1,
             clipPath: "inset(0 0 0% 0)",
-            duration: variant === "clip" ? 1.15 : 0.95,
+            duration: isStructural ? 0.82 : variant === "clip" ? 1.15 : 0.95,
             delay,
             ease: "power3.out",
             scrollTrigger: {
