@@ -1,0 +1,310 @@
+/* Bespoke motion and luxury interaction layer for A. S. Exim Lanka. */
+
+:root {
+  --luxury-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --luxury-ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-hero],
+[data-hero-image],
+[data-reveal],
+[data-parallax] {
+  will-change: transform, opacity;
+}
+
+.hero-stage::before {
+  content: "";
+  position: absolute;
+  inset: -18% -12% auto auto;
+  width: min(58vw, 760px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(229, 201, 130, 0.13) 0%, rgba(229, 201, 130, 0.04) 42%, transparent 72%);
+  filter: blur(12px);
+  animation: ambientFloat 13s ease-in-out infinite alternate;
+}
+
+.hero-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(115deg, transparent 12%, rgba(255, 250, 240, 0.025) 45%, transparent 69%),
+    radial-gradient(circle at 76% 27%, rgba(229, 201, 130, 0.08), transparent 24%);
+  mix-blend-mode: screen;
+  animation: lightSweep 11s ease-in-out infinite alternate;
+}
+
+.hero-title-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+
+.hero-title-line > span {
+  display: block;
+}
+
+.hero-copy {
+  text-shadow: 0 20px 58px rgba(0, 0, 0, 0.18);
+}
+
+.hero-scroll-marker {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 50%;
+  z-index: 20;
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  transform: translateX(-50%);
+  color: rgba(255, 250, 240, 0.48);
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.hero-scroll-marker::before {
+  content: "";
+  width: 1px;
+  height: 2.35rem;
+  background: linear-gradient(to bottom, rgba(229, 201, 130, 0.9), transparent);
+  transform-origin: top;
+  animation: scrollPulse 2.4s var(--luxury-ease) infinite;
+}
+
+.luxury-card {
+  isolation: isolate;
+  transform: translateZ(0);
+  transition:
+    transform 900ms var(--luxury-ease),
+    box-shadow 900ms var(--luxury-ease);
+}
+
+.luxury-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(118deg, transparent 24%, rgba(255, 255, 255, 0.12) 48%, transparent 69%);
+  transform: translateX(-42%);
+  transition:
+    opacity 700ms ease,
+    transform 1200ms var(--luxury-ease);
+}
+
+.luxury-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 90px rgba(8, 39, 30, 0.16);
+}
+
+.luxury-card:hover::after {
+  opacity: 1;
+  transform: translateX(42%);
+}
+
+.luxury-image {
+  transform: scale(1.035);
+  transition:
+    transform 1600ms var(--luxury-ease),
+    filter 1100ms ease;
+}
+
+.luxury-card:hover .luxury-image {
+  transform: scale(1.075);
+  filter: saturate(0.94) contrast(1.05);
+}
+
+.luxury-frame {
+  position: relative;
+}
+
+.luxury-frame::before,
+.luxury-frame::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(216, 189, 122, 0.34);
+  transition: transform 900ms var(--luxury-ease), opacity 900ms ease;
+}
+
+.luxury-frame::before {
+  inset: 0.8rem;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  transform: scale(0.96);
+  transform-origin: top left;
+}
+
+.luxury-frame::after {
+  inset: 0.8rem;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  transform: scale(0.96);
+  transform-origin: bottom right;
+}
+
+.luxury-frame:hover::before,
+.luxury-frame:hover::after {
+  transform: scale(1);
+}
+
+.luxury-button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transform: translateZ(0);
+  transition:
+    transform 450ms var(--luxury-ease),
+    border-color 450ms ease,
+    color 450ms ease,
+    background-color 450ms ease;
+}
+
+.luxury-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.2) 50%, transparent 80%);
+  transform: translateX(-120%);
+  transition: transform 850ms var(--luxury-ease);
+}
+
+.luxury-button:hover {
+  transform: translateY(-2px);
+}
+
+.luxury-button:hover::before {
+  transform: translateX(120%);
+}
+
+.luxury-rule {
+  display: inline-block;
+  width: 2.5rem;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left;
+}
+
+.luxury-rail-item {
+  position: relative;
+  transition: transform 600ms var(--luxury-ease), opacity 600ms ease;
+}
+
+.luxury-rail-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 1.25rem;
+  bottom: -0.7rem;
+  height: 1px;
+  background: rgba(141, 92, 63, 0.28);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 650ms var(--luxury-ease);
+}
+
+.luxury-rail-item:hover {
+  transform: translateY(-3px);
+}
+
+.luxury-rail-item:hover::after {
+  transform: scaleX(1);
+}
+
+.luxury-nav-shell {
+  transition:
+    background-color 550ms var(--luxury-ease),
+    border-color 550ms ease,
+    box-shadow 550ms ease,
+    backdrop-filter 550ms ease;
+}
+
+.luxury-nav-shell nav button,
+.luxury-nav-shell > div > button {
+  transition-timing-function: var(--luxury-ease);
+}
+
+.luxury-nav-cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-nav-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 24%, rgba(255,255,255,0.18) 50%, transparent 76%);
+  transform: translateX(-140%);
+  transition: transform 900ms var(--luxury-ease);
+}
+
+.luxury-nav-cta:hover::after {
+  transform: translateX(140%);
+}
+
+@keyframes ambientFloat {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-5%, 5%, 0) scale(1.08);
+  }
+}
+
+@keyframes lightSweep {
+  from {
+    opacity: 0.48;
+    transform: translate3d(-2%, 0, 0);
+  }
+  to {
+    opacity: 0.9;
+    transform: translate3d(3%, 0, 0);
+  }
+}
+
+@keyframes scrollPulse {
+  0% {
+    transform: scaleY(0.2);
+    opacity: 0.25;
+  }
+  45% {
+    transform: scaleY(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scaleY(0.25);
+    opacity: 0.15;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-scroll-marker {
+    display: flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-stage::before,
+  .hero-stage::after,
+  .hero-scroll-marker::before {
+    animation: none !important;
+  }
+
+  .luxury-card,
+  .luxury-image,
+  .luxury-button,
+  .luxury-frame::before,
+  .luxury-frame::after,
+  .luxury-rail-item,
+  .luxury-rail-item::after {
+    transition-duration: 0.01ms !important;
+  }
+}
