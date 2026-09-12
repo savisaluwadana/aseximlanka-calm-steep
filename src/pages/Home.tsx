@@ -1,12 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  Globe2,
-  Leaf,
-  PackageCheck,
-  ShieldCheck,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 const teaRegions = [
   "Nuwara Eliya",
@@ -65,6 +58,12 @@ const process = [
   },
 ];
 
+const atelierDetails = [
+  { number: "I", label: "Tea selection", detail: "Origin · grade · cup profile" },
+  { number: "II", label: "Pack formats", detail: "Caddies · pouches · gifting" },
+  { number: "III", label: "Buyer specification", detail: "Market · compliance · export" },
+];
+
 const Home = () => {
   const navigate = useNavigate();
 
@@ -80,12 +79,13 @@ const Home = () => {
           <img
             src="/image.png"
             alt="Sri Lankan tea country"
-            className="h-full w-full object-cover object-center hero-ken-burns"
+            className="h-full w-full scale-[1.015] object-cover object-center hero-ken-burns saturate-[0.82] contrast-[1.04]"
             fetchPriority="high"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,31,23,0.96)_0%,rgba(7,39,29,0.84)_42%,rgba(7,39,29,0.28)_72%,rgba(7,39,29,0.55)_100%)]" />
-          <div className="absolute inset-0 premium-grain opacity-[0.12]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,31,23,0.97)_0%,rgba(7,39,29,0.84)_42%,rgba(7,39,29,0.26)_72%,rgba(7,39,29,0.58)_100%)]" />
+          <div className="absolute inset-0 premium-grain opacity-[0.13]" />
           <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#092d22]/80 to-transparent" />
+          <div className="absolute inset-4 border border-white/[0.07] sm:inset-7" />
         </div>
 
         <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1440px] items-end px-5 pb-16 pt-32 sm:px-8 md:pb-20 lg:px-12 lg:pb-24">
@@ -116,14 +116,14 @@ const Home = () => {
                     className="group inline-flex items-center justify-between gap-6 bg-[#e1c27c] px-6 py-4 text-[0.66rem] font-bold uppercase tracking-[0.2em] text-[#0a3125] transition-colors hover:bg-[#f0d99d]"
                   >
                     Discover tea
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="h-4 w-4 stroke-[1.5] transition-transform group-hover:translate-x-1" />
                   </button>
                   <button
                     onClick={() => go("/contact")}
                     className="group inline-flex items-center justify-between gap-6 border border-white/35 px-6 py-4 text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:border-[#e1c27c] hover:text-[#e1c27c]"
                   >
                     Source with us
-                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    <ArrowUpRight className="h-4 w-4 stroke-[1.5] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </button>
                 </div>
               </div>
@@ -207,7 +207,7 @@ const Home = () => {
               className="group inline-flex w-fit items-center gap-3 border-b border-[#8d5c3f]/55 pb-2 text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#8d5c3f]"
             >
               View the tea house
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              <ArrowUpRight className="h-4 w-4 stroke-[1.5] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </button>
           </div>
 
@@ -228,9 +228,10 @@ const Home = () => {
                   alt={collection.title}
                   loading="lazy"
                   decoding="async"
-                  className="h-full min-h-[360px] w-full object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.035] lg:min-h-0"
+                  className="h-full min-h-[360px] w-full object-cover saturate-[0.82] contrast-[1.03] transition duration-[1400ms] ease-out group-hover:scale-[1.04] lg:min-h-0"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#071f18]/95 via-[#071f18]/22 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#071f18]/95 via-[#071f18]/24 to-[#071f18]/5" />
+                <div className="absolute inset-3 border border-white/0 transition-colors duration-500 group-hover:border-white/20" />
                 <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 lg:p-9">
                   <div className="mb-4 flex items-center gap-3 text-[0.58rem] font-semibold uppercase tracking-[0.2em] text-[#e1c27c]">
                     <span>{collection.number}</span>
@@ -276,13 +277,16 @@ const Home = () => {
         <div className="mx-auto grid max-w-[1440px] gap-12 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20 lg:px-12">
           <div data-reveal className="relative">
             <div className="absolute -left-5 -top-5 hidden h-full w-full border border-[#8d5c3f]/22 md:block" />
-            <img
-              src="/image5.jpeg"
-              alt="Ceylon tea presentation and packaging"
-              loading="lazy"
-              decoding="async"
-              className="relative aspect-[5/4] w-full object-cover shadow-[0_30px_90px_rgba(20,55,43,0.13)]"
-            />
+            <div className="relative overflow-hidden bg-[#14372b] p-2 shadow-[0_30px_90px_rgba(20,55,43,0.13)]">
+              <img
+                src="/image5.jpeg"
+                alt="Ceylon tea presentation and packaging"
+                loading="lazy"
+                decoding="async"
+                className="aspect-[5/4] w-full object-cover saturate-[0.8] contrast-[1.04]"
+              />
+              <div className="pointer-events-none absolute inset-5 border border-white/20" />
+            </div>
           </div>
 
           <div data-reveal>
@@ -294,15 +298,12 @@ const Home = () => {
               We treat private label as more than putting a logo on a pack. Tea profile, format, presentation, gifting, and export requirements should feel like one coherent product experience.
             </p>
 
-            <div className="mt-9 grid gap-4 sm:grid-cols-3">
-              {[
-                { icon: Leaf, label: "Tea selection" },
-                { icon: PackageCheck, label: "Pack formats" },
-                { icon: ShieldCheck, label: "Buyer specs" },
-              ].map((item) => (
-                <div key={item.label} className="border-t border-[#14372b]/18 pt-4">
-                  <item.icon className="h-5 w-5 text-[#8d5c3f]" />
-                  <p className="mt-3 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#14372b]">{item.label}</p>
+            <div className="mt-10 border-y border-[#14372b]/16">
+              {atelierDetails.map((item) => (
+                <div key={item.number} className="grid grid-cols-[54px_1fr] gap-4 border-b border-[#14372b]/12 py-4 last:border-0 sm:grid-cols-[54px_0.8fr_1.2fr] sm:items-center">
+                  <span className="font-serif text-lg italic text-[#8d5c3f]">{item.number}</span>
+                  <p className="text-[0.61rem] font-semibold uppercase tracking-[0.18em] text-[#14372b]">{item.label}</p>
+                  <p className="col-start-2 text-xs tracking-[0.04em] text-[#6e6b5f] sm:col-start-auto">{item.detail}</p>
                 </div>
               ))}
             </div>
@@ -312,7 +313,7 @@ const Home = () => {
               className="group mt-10 inline-flex items-center gap-4 bg-[#14372b] px-6 py-4 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[#fff9ed] transition-colors hover:bg-[#8d5c3f]"
             >
               Discuss a collection
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              <ArrowUpRight className="h-4 w-4 stroke-[1.5] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </button>
           </div>
         </div>
@@ -351,14 +352,15 @@ const Home = () => {
                   onClick={() => go(division.path)}
                   className="group text-left"
                 >
-                  <div className="overflow-hidden bg-[#14372b]">
+                  <div className="relative overflow-hidden bg-[#14372b] p-1.5">
                     <img
                       src={division.image}
                       alt={division.title}
                       loading="lazy"
                       decoding="async"
-                      className="aspect-[4/3] w-full object-cover transition duration-[1000ms] group-hover:scale-[1.035]"
+                      className="aspect-[4/3] w-full object-cover saturate-[0.78] contrast-[1.04] transition duration-[1200ms] group-hover:scale-[1.04]"
                     />
+                    <div className="pointer-events-none absolute inset-4 border border-white/20" />
                   </div>
                   <div className="flex items-start justify-between gap-5 border-b border-[#14372b]/14 py-5">
                     <div>
@@ -366,7 +368,9 @@ const Home = () => {
                       <h3 className="mt-2 font-serif text-3xl font-normal text-[#14372b]">{division.title}</h3>
                       <p className="mt-3 max-w-lg text-sm leading-6 text-[#66695f]">{division.copy}</p>
                     </div>
-                    <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-[#8d5c3f] transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+                    <span className="mt-1 grid h-9 w-9 shrink-0 place-items-center border border-[#8d5c3f]/35 text-[#8d5c3f] transition-colors group-hover:bg-[#14372b] group-hover:text-[#fff9ed]">
+                      <ArrowUpRight className="h-4 w-4 stroke-[1.5] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </span>
                   </div>
                 </button>
               ))}
@@ -381,16 +385,17 @@ const Home = () => {
           alt="Ceylon tea estate landscape"
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full scale-[1.01] object-cover saturate-[0.78] contrast-[1.05]"
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,31,23,0.95),rgba(5,31,23,0.7)_58%,rgba(5,31,23,0.35))]" />
         <div className="absolute inset-0 premium-grain opacity-[0.1]" />
+        <div className="absolute inset-5 border border-white/[0.08] sm:inset-8" />
 
         <div className="relative z-10 mx-auto flex min-h-[68svh] max-w-[1440px] items-center px-5 py-24 sm:px-8 lg:px-12">
           <div data-reveal className="max-w-4xl">
-            <div className="flex items-center gap-3 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[#e1c27c]">
-              <Globe2 className="h-4 w-4" />
-              <span>For buyers, retailers & hospitality partners</span>
+            <div className="flex items-center gap-4 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[#e1c27c]">
+              <span className="h-px w-10 bg-[#e1c27c]" />
+              <span>International sourcing · retail · hospitality</span>
             </div>
             <h2 className="mt-7 font-serif text-[clamp(3.7rem,7vw,7.5rem)] font-normal leading-[0.84] tracking-[-0.035em] text-[#fff9ed]">
               Source Ceylon <span className="italic text-[#e5c982]">differently.</span>
@@ -403,7 +408,7 @@ const Home = () => {
               className="group mt-9 inline-flex items-center gap-4 bg-[#e1c27c] px-7 py-4 text-[0.66rem] font-bold uppercase tracking-[0.2em] text-[#0a3125] transition-colors hover:bg-[#f0d99d]"
             >
               Start an inquiry
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="h-4 w-4 stroke-[1.5] transition-transform group-hover:translate-x-1" />
             </button>
           </div>
         </div>
