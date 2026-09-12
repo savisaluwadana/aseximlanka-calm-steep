@@ -15,6 +15,7 @@ const Footer = () => {
     { name: "Ceylon Tea", path: "/products" },
     { name: "Island Spices", path: "/spices" },
     { name: "Wellness", path: "/wellness" },
+    { name: "Journal", path: "/journal" },
   ];
 
   return (
@@ -83,7 +84,7 @@ const Footer = () => {
 
         <div className="flex flex-col gap-5 pt-7 text-[0.64rem] font-medium uppercase tracking-[0.16em] text-white/42 md:flex-row md:items-center md:justify-between">
           <p>© 2026 A. S. Exim Lanka (Pvt) Ltd.</p>
-          <p className="text-[#d8bd7a]/70">Tea · Spices · Private label · Wellness</p>
+          <p className="text-[#d8bd7a]/70">Tea · Spices · Private label · Wellness · Journal</p>
           <button onClick={() => handleNavigate("/")} className="w-fit transition-colors hover:text-white">
             Back to the house
           </button>
